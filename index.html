@@ -44,7 +44,7 @@
       })(document, window.mixpanel || [])
 
       mixpanel.init('492c14705dda58dd03017a204335f69e', {
-        debug: true,
+        debug: false,
         track_pageview: true,
         record_sessions_percent: 100,
         record_block_selector: '',
@@ -61,8 +61,10 @@
           capture_text_content: true,
         }
       });
-
     </script>
+
+    <!-- Your custom tracking logic — loads after Mixpanel is ready -->
+    <script src="/js/tracking.js" defer></script>
   </head>
 
   <body>
