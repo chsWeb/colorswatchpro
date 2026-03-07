@@ -14,7 +14,7 @@
   --border-bright: rgba(255, 255, 255, 0.13);
   --text-primary: #f0eff4;
   --text-secondary: #8e8d99;
-  --text-dim: #5a5968;
+  --text-dim: #6e6d7a;
   --accent: #d4ff47;
   --accent-dim: rgba(212, 255, 71, 0.15);
   --accent-glow: rgba(212, 255, 71, 0.3);
@@ -43,7 +43,7 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -593,11 +593,16 @@ nav {
   display: block;
 }
 
+em {
+  font-style: normal;
+  color: var(--accent);
+}
+
 .hero-sub {
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 1.5;
   font-weight: 300;
   color: var(--text-secondary);
-  line-height: 1.65;
   max-width: 460px;
   margin-bottom: 40px;
 }
@@ -635,7 +640,7 @@ nav {
 
 .price-tag {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
 }
 
@@ -725,11 +730,11 @@ nav {
 }
 
 .section-sub {
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 1.5;
   font-weight: 300;
   color: var(--text-secondary);
   max-width: 460px;
-  line-height: 1.7;
   margin-bottom: 64px;
 }
 
@@ -779,7 +784,7 @@ nav {
 }
 
 .step-desc {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -875,7 +880,7 @@ nav {
 }
 
 .feat-desc {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.65;
 }
@@ -986,7 +991,7 @@ nav {
 }
 
 .token-key {
-  color: var(--text-dim);
+  color: var(--text-secondary);
 }
 
 .token-val {
@@ -1209,7 +1214,7 @@ nav {
   gap: 10px;
   padding: 8px 12px;
   font-family: 'Gabarito', sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 500;
   transition: background 0.3s;
 }
@@ -1352,7 +1357,7 @@ nav {
 }
 
 .pg-panel-dots {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--text-dim);
   letter-spacing: 2px;
 }
@@ -1565,7 +1570,7 @@ nav {
   height: 22px;
   border-radius: 50%;
   background: var(--accent-dim);
-  border: 1px solid rgba(212, 255, 71, 0.25);
+  /*border: 1px solid rgba(212, 255, 71, 0.25);*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1579,7 +1584,7 @@ nav {
 
 .included-name {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 700;
   margin-bottom: 4px;
 }
@@ -1625,7 +1630,7 @@ nav {
 }
 
 .audience-desc {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-secondary);
   line-height: 1.6;
 }
@@ -1641,6 +1646,36 @@ nav {
   border-radius: 4px;
   background: var(--bg-elevated);
   color: var(--text-dim);
+}
+
+/* ── AUDIENCE CAROUSEL (mobile) ── */
+.audience-carousel-wrap {
+  position: relative;
+}
+
+.audience-dots {
+  display: none;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.audience-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-bright);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.audience-dot.active {
+  background: var(--accent);
+  width: 18px;
+  border-radius: 3px;
+  box-shadow: 0 0 6px var(--accent-glow);
 }
 
 /* ── PRICING ── */
@@ -1700,7 +1735,7 @@ nav {
 }
 
 .price-note {
-  font-size: 14px;
+  font-size: 17px;
   color: var(--text-dim);
   margin-bottom: 40px;
 }
@@ -1739,7 +1774,7 @@ nav {
   color: #0a0a0b;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 17px;
   padding: 18px 32px;
   border-radius: 8px;
   text-decoration: none;
@@ -1982,7 +2017,7 @@ footer {
     grid-column: 1 / -1;
     grid-row: 1;
     margin-bottom: 16px;
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .step-icon {
@@ -2005,7 +2040,7 @@ footer {
     grid-column: 1 / -1;
     grid-row: 3;
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.65;
   }
 
@@ -2019,6 +2054,34 @@ footer {
   }
 
   .steps-dots {
+    display: flex;
+  }
+
+  .audience-grid {
+    display: flex !important;
+    grid-template-columns: unset;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    gap: 0;
+  }
+
+  .audience-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .audience-card {
+    min-width: 100%;
+    scroll-snap-align: start;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+
+  .audience-dots {
     display: flex;
   }
 }
