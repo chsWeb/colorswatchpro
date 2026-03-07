@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Jono Young">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Swatch Pro for Figma — Design System Color Documentation</title>
+    <meta name="description"
+      content="Automate your design system color documentation in minutes. Built for Figma, powered by Claude AI." />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://colorswatchpro.com" />
+    <meta property="og:title" content="Color Swatch Pro for Figma — Design System Color Documentation" />
+    <meta property="og:description"
+      content="Build complete, accessible, token-ready color palettes in minutes. Built for Figma, powered by Claude AI." />
+    <meta property="og:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Color Swatch Pro" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://colorswatchpro.com" />
+    <meta name="twitter:title" content="Color Swatch Pro for Figma — Design System Color Documentation" />
+    <meta name="twitter:description"
+      content="Build complete, accessible, token-ready color palettes in minutes. Built for Figma, powered by Claude AI." />
+    <meta name="twitter:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
+    <!--Assets-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="css/page.css">
+    <script type="text/javascript">
+      (function (e, c) {
+        if (!c.__SV) {
+          var l, h; window.mixpanel = c; c._i = []; c.init = function (q, r, f) {
+            function t(d, a) { var g = a.split("."); 2 == g.length && (d = d[g[0]], a = g[1]); d[a] = function () { d.push([a].concat(Array.prototype.slice.call(arguments, 0))) } } var b = c; "undefined" !== typeof f ? b = c[f] = [] : f = "mixpanel"; b.people = b.people || []; b.toString = function (d) { var a = "mixpanel"; "mixpanel" !== f && (a += "." + f); d || (a += " (stub)"); return a }; b.people.toString = function () { return b.toString(1) + ".people (stub)" }; l = "disable time_event track track_pageview track_links track_forms track_with_groups add_group set_group remove_group register register_once alias unregister identify name_tag set_config reset opt_in_tracking opt_out_tracking has_opted_in_tracking has_opted_out_tracking clear_opt_in_out_tracking start_batch_senders start_session_recording stop_session_recording people.set people.set_once people.unset people.increment people.append people.union people.track_charge people.clear_charges people.delete_user people.remove".split(" ");
+            for (h = 0; h < l.length; h++)t(b, l[h]); var n = "set set_once union unset remove delete".split(" "); b.get_group = function () { function d(p) { a[p] = function () { b.push([g, [p].concat(Array.prototype.slice.call(arguments, 0))]) } } for (var a = {}, g = ["get_group"].concat(Array.prototype.slice.call(arguments, 0)), m = 0; m < n.length; m++)d(n[m]); return a }; c._i.push([q, r, f])
+          }; c.__SV = 1.2; var k = e.createElement("script"); k.type = "text/javascript"; k.async = !0; k.src = "undefined" !== typeof MIXPANEL_CUSTOM_LIB_URL ? MIXPANEL_CUSTOM_LIB_URL : "file:" ===
+            e.location.protocol && "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//) ? "https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js" : "//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js"; e = e.getElementsByTagName("script")[0]; e.parentNode.insertBefore(k, e)
+        }
+      })(document, window.mixpanel || [])
+
+      mixpanel.init('492c14705dda58dd03017a204335f69e', {
+        debug: true,
+        track_pageview: true,
+        record_sessions_percent: 100,
+        record_block_selector: '',
+        record_mask_text_class: '',
+        record_mask_text_selector: '',
+        record_heatmap_data: true,
+        autocapture: {
+          pageview: "full-url",
+          click: true,
+          input: true,
+          rage_click: true,
+          scroll: true,
+          submit: true,
+          capture_text_content: true,
+        }
+      });
+
+    </script>
+  </head>
+
+  <body>
+
+    <!-- Color band top -->
+    <div class="color-band" aria-hidden="true">
+      <div class="color-band-seg" style="background:var(--c1)"></div>
+      <div class="color-band-seg" style="background:var(--c2)"></div>
+      <div class="color-band-seg" style="background:var(--c3)"></div>
+      <div class="color-band-seg" style="background:var(--c4)"></div>
+      <div class="color-band-seg" style="background:var(--c5)"></div>
+      <div class="color-band-seg" style="background:var(--c6)"></div>
+      <div class="color-band-seg" style="background:var(--c7)"></div>
+      <div class="color-band-seg" style="background:var(--c8)"></div>
+      <div class="color-band-seg" style="background:var(--c9)"></div>
+      <div class="color-band-seg" style="background:var(--c10)"></div>
+      <div class="color-band-seg" style="background:var(--c11)"></div>
+    </div>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-dot"></div>
+        Color Swatch Pro
+        <span class="nav-beta">Beta</span>
+      </a>
+      <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
+        class="nav-cta">Get it — $29</a>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>✦</span> Figma Component + Claude Automation
+        </div>
+        <h1 class="hero-title">
+          Color documentation,<br>
+          <em>Claudemated!</em>
+        </h1>
+        <p class="hero-sub">
+          Build complete, accessible, token-ready color palettes in minutes — not hours. Color Swatch Pro pairs with
+          Claude and the Figma MCP workflow to turn a prompt into a fully documented design system.
+        </p>
+        <div class="hero-actions">
+          <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
+            class="btn-primary">
+            Download on Figma Community
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </a>
+          <div class="price-tag"><strong>$29</strong> one-time</div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-val">45<span>min</span></div>
+            <div class="stat-label">saved per palette</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">22<span>+</span></div>
+            <div class="stat-label">color primitives</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">2<span>×</span></div>
+            <div class="stat-label">contrast models</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-demo" id="heroDemo">
+
+        <!-- Swatch Preview -->
+        <div class="hero-swatch-wrap">
+          <div class="hd-swatch dark-mode" id="hdSwatch">
+            <div class="hd-swatch-color" id="hdSwatchColor" style="background:#4040a0">
+              <span class="hd-score" id="hdScore" style="color:#fff">109</span>
+            </div>
+            <div class="hd-swatch-body" id="hdSwatchBody">
+              <div class="hd-token-name" id="hdTokenName">--brand-primary-500</div>
+              <div class="hd-hex" id="hdHex">#4040a0</div>
+              <div class="hd-hsl" id="hdHSL">H: 240 &nbsp;S: 43 &nbsp;L: 44</div>
+              <div class="hd-rows">
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconLarge">✓</span><span
+                    class="hd-row-label">Large text:</span><span class="hd-row-val">45</span></div>
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconFluent">✓</span><span
+                    class="hd-row-label">Fluent text:</span><span class="hd-row-val">60</span></div>
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconBody">✓</span><span
+                    class="hd-row-label">Body text:</span><span class="hd-row-val">75</span></div>
+                <div class="hd-row"><span class="hd-row-icon fail" id="hdIconPreferred">✗</span><span
+                    class="hd-row-label">Preferred:</span><span class="hd-row-val">90</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Properties Panel -->
+        <div class="hd-panel">
+          <div class="hd-panel-header">
+            <span class="hd-panel-title">_color-swatch</span>
+            <span class="hd-panel-dots">···</span>
+          </div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">Contrast Mode</span>
+            <div class="hd-seg" id="hdContrastMode">
+              <button class="hd-seg-btn active" data-val="APCA">APCA</button>
+              <button class="hd-seg-btn" data-val="WCAG">WCAG</button>
+            </div>
+          </div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">Dark Mode</span>
+            <label class="hd-toggle">
+              <input type="checkbox" id="hdDarkMode" checked />
+              <span class="hd-toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="hd-divider"></div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">Color</span>
+            <div class="hd-color-wrap">
+              <input type="color" id="hdColorPicker" value="#4040a0" class="hd-color-picker" />
+              <input type="text" id="hdHexInput" value="4040a0" class="hd-input hd-mono" maxlength="6" />
+            </div>
+          </div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">--name</span>
+            <input type="text" id="hdName" value="brand-primary" class="hd-input" />
+          </div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">-value</span>
+            <input type="text" id="hdValue" value="500" class="hd-input hd-short" />
+          </div>
+
+          <div class="hd-divider"></div>
+
+          <div class="hd-prop-row hd-readonly">
+            <span class="hd-prop-label">↳ Hue</span>
+            <span class="hd-prop-val" id="hdPropH">240</span>
+          </div>
+          <div class="hd-prop-row hd-readonly">
+            <span class="hd-prop-label">↳ Saturation</span>
+            <span class="hd-prop-val" id="hdPropS">43</span>
+          </div>
+          <div class="hd-prop-row hd-readonly">
+            <span class="hd-prop-label">↳ Lightness</span>
+            <span class="hd-prop-val" id="hdPropL">44</span>
+          </div>
+
+          <div class="hd-divider"></div>
+
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">Token 1</span>
+            <label class="hd-toggle">
+              <input type="checkbox" id="hdToken1" />
+              <span class="hd-toggle-track"></span>
+            </label>
+          </div>
+          <div class="hd-prop-row hd-sub" id="hdToken1Sub" style="display:none">
+            <span class="hd-prop-label">↳ token 1</span>
+            <input type="text" id="hdToken1Val" value="token" class="hd-input hd-short" />
+          </div>
+          <div class="hd-prop-row">
+            <span class="hd-prop-label">Token 2</span>
+            <label class="hd-toggle">
+              <input type="checkbox" id="hdToken2" />
+              <span class="hd-toggle-track"></span>
+            </label>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section class="workflow reveal">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Prompt → Palette → Done</h2>
+      <p class="section-sub">Six automated steps replace hours of manual work. Claude reads the component structure and
+        handles everything.</p>
+
+      <div class="steps-carousel-wrap">
+        <div class="steps" id="stepsGrid">
+          <div class="step">
+            <div class="step-num">01</div>
+            <span class="step-icon">🎨</span>
+            <div class="step-title">Generate Color Variables</div>
+            <p class="step-desc">Claude creates primitive color variables directly in Figma with your chosen palette and
+              naming conventions.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c1), var(--c2))"></div>
+          </div>
+          <div class="step">
+            <div class="step-num">02</div>
+            <span class="step-icon">⬛</span>
+            <div class="step-title">Build Swatch Components</div>
+            <p class="step-desc">Every color variable becomes a fully documented swatch — token name, HEX, HSL, and
+              contrast data included.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c3), var(--c4))"></div>
+          </div>
+          <div class="step">
+            <div class="step-num">03</div>
+            <span class="step-icon">♿</span>
+            <div class="step-title">Calculate Contrast</div>
+            <p class="step-desc">WCAG and APCA contrast values are computed and written into each swatch automatically. No
+              manual testing.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c5), var(--c6))"></div>
+          </div>
+          <div class="step">
+            <div class="step-num">04</div>
+            <span class="step-icon">🌓</span>
+            <div class="step-title">Optimize for Dark Mode</div>
+            <p class="step-desc">Colors are evaluated and adjusted for both light and dark mode usage with token
+              references for each.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c7), var(--c8))"></div>
+          </div>
+          <div class="step">
+            <div class="step-num">05</div>
+            <span class="step-icon">✅</span>
+            <div class="step-title">Toggle Pass/Fail</div>
+            <p class="step-desc">Accessibility indicators flip on for large, fluent, body, and preferred text thresholds
+              across every swatch.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c9), var(--c10))"></div>
+          </div>
+          <div class="step">
+            <div class="step-num">06</div>
+            <span class="step-icon">📐</span>
+            <div class="step-title">Organize the Palette</div>
+            <p class="step-desc">Auto layout arranges everything into a clean documentation grid — ready to share with
+              designers and engineers.</p>
+            <div class="step-accent" style="background: linear-gradient(to right, var(--c11), var(--c8))"></div>
+          </div>
+        </div>
+        <div class="steps-dots" id="stepsDots"></div>
+      </div>
+    </section>
+
+    <!-- VIDEO WALKTHROUGH -->
+    <section class="video-section reveal">
+      <div class="section-label">See it in action</div>
+      <h2 class="section-title">Watch the full walkthrough</h2>
+      <p class="section-sub">See how Claude and Color Swatch Pro work together to build a complete, accessible color
+        system in minutes.</p>
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/vFMQeKUGq2Q?si=U5XwlWehy45IjG7B" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features reveal">
+      <div class="section-label">What's inside</div>
+      <h2 class="section-title">Everything you need to<br>document color properly</h2>
+
+      <div class="features-grid">
+        <!-- Large: Swatch preview -->
+        <div class="feat-card large">
+          <div class="feat-icon">🟩</div>
+          <div class="feat-title">Full Documentation Component</div>
+          <p class="feat-desc">Each swatch displays token name, color value, HEX and HSL formats, contrast ratings, and
+            accessibility status. Everything designers and engineers need in one component.</p>
+          <div class="swatch-preview">
+            <div class="swatch-chip" style="background:var(--c1)"><span class="swatch-chip-label">Red 500</span></div>
+            <div class="swatch-chip" style="background:#e05555"><span class="swatch-chip-label">Red 600</span></div>
+            <div class="swatch-chip" style="background:#c04040"><span class="swatch-chip-label">Red 700</span></div>
+            <div class="swatch-chip" style="background:var(--c2)"><span class="swatch-chip-label">Orange</span></div>
+            <div class="swatch-chip" style="background:var(--c3)"><span class="swatch-chip-label">Yellow</span></div>
+            <div class="swatch-chip" style="background:var(--c4)"><span class="swatch-chip-label">Lime</span></div>
+            <div class="swatch-chip" style="background:var(--c5)"><span class="swatch-chip-label">Green</span></div>
+            <div class="swatch-chip" style="background:var(--c6)"><span class="swatch-chip-label">Teal</span></div>
+            <div class="swatch-chip" style="background:var(--c7)"><span class="swatch-chip-label">Blue</span></div>
+            <div class="swatch-chip" style="background:var(--c8)"><span class="swatch-chip-label">Violet</span></div>
+            <div class="swatch-chip" style="background:var(--c9)"><span class="swatch-chip-label">Pink</span></div>
+          </div>
+        </div>
+
+        <!-- Medium: Accessibility -->
+        <div class="feat-card medium">
+          <div class="feat-icon">♿</div>
+          <div class="feat-title">WCAG &amp; APCA Contrast</div>
+          <p class="feat-desc">Toggle between contrast models. Meet today's WCAG standard while preparing for APCA — the
+            next generation accessibility scoring model.</p>
+          <div class="a11y-demo">
+            <div class="a11y-row">
+              <span class="a11y-row-label">Large Text</span>
+              <span class="badge-pill pass">PASS 88</span>
+            </div>
+            <div class="a11y-row">
+              <span class="a11y-row-label">Fluent Text</span>
+              <span class="badge-pill pass">PASS 88</span>
+            </div>
+            <div class="a11y-row">
+              <span class="a11y-row-label">Body Text</span>
+              <span class="badge-pill pass">PASS 88</span>
+            </div>
+            <div class="a11y-row">
+              <span class="a11y-row-label">Preferred</span>
+              <span class="badge-pill fail">FAIL 88</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Half: Token ready -->
+        <div class="feat-card half">
+          <div class="feat-icon">🔗</div>
+          <div class="feat-title">Token-Ready Architecture</div>
+          <p class="feat-desc">Built with design token references from the ground up. Works with light and dark mode and
+            supports variable aliasing for semantic tokens.</p>
+          <div class="token-viz">
+            <div><span class="token-key">--color-primary-500: </span><span class="token-hex">#54a0ff</span></div>
+            <div><span class="token-key">--color-primary-600: </span><span class="token-hex">#2e86de</span></div>
+            <div><span class="token-key">--text-on-primary: </span><span class="token-val">var(--neutral-0)</span></div>
+            <div><span class="token-key">--surface-accent: </span><span class="token-val">var(--primary-100)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Half: Claude prompts -->
+        <div class="feat-card half">
+          <div class="feat-icon">⚡</div>
+          <div class="feat-title">Claude Automation Prompts</div>
+          <p class="feat-desc">6 tested prompts designed for the Figma MCP workflow. Run them in sequence to build a
+            complete color system from scratch.</p>
+
+          <!-- Carousel -->
+          <div class="prompt-carousel" id="promptCarousel">
+            <div class="carousel-track" id="carouselTrack">
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 1 · Create Color Variables</span>
+                  </div>
+                  <p class="prompt-text">Create a set of color variables in a new collection called
+                    <strong>_primitives</strong>. The first color is <strong>brand-primary</strong>, with a 500 value of
+                    <strong>hsl(245 52 50)</strong>. Create a second color for neutral with a 500 value of
+                    <strong>hsl(245 4 50)</strong>. Create 25, 50, 100–400, then 600–900 and 950 where 25–400 are tints
+                    and 600–950 are shades.
+                  </p>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 2 · Start Color Swatch Pro</span>
+                  </div>
+                  <p class="prompt-text">Use the <strong>component_color-swatch</strong> to create a color swatch for
+                    each variable in <strong>_primitives</strong>. Fill the layer "color" with the variable's color
+                    value. <strong>_color-swatch</strong> has a #hex and HSL color values, please fill that in for each
+                    linked variable.</p>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 3 · Color Contrast &amp; Accessibility</span>
+                  </div>
+                  <p class="prompt-text">Update the color <strong>APCA contrast value</strong> for each color and set
+                    Pass or Fail for <strong>Large Text, Fluent Text, Body Text</strong> and <strong>Preferred
+                      Text</strong>. The _color-swatch component has a layer named 00, replace that with the APCA value.
+                    Toggle each component property true or false based on the APCA value.</p>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 4 · Optimize Contrast</span>
+                  </div>
+                  <p class="prompt-text">Adjust each swatch for better contrast. The <strong>_color-swatch</strong>
+                    component has a property for <strong>dark mode</strong>. By default it is in light mode. Update each
+                    swatch to dark where it increases the potential use cases for each color. Please update the APCA
+                    value and pass/fail values for all swatches changed to Dark Mode.</p>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 5 · Organize</span>
+                  </div>
+                  <p class="prompt-text">Wrap each color set in a new frame with <strong>auto layout</strong> applied.
+                    Padding <strong>24px</strong> and gap <strong>24px</strong>. Add a card at the beginning of the
+                    color set with a <strong>title and description</strong> of the color and its use cases.</p>
+                </div>
+              </div>
+
+              <div class="carousel-slide">
+                <div class="prompt-box">
+                  <div class="prompt-header">
+                    <span class="prompt-label">Prompt 6 · Fixes &amp; Tokens</span>
+                  </div>
+                  <p class="prompt-text">Update the <strong>name</strong> and <strong>color value (##)</strong> for each
+                    color using the <strong>_primitive name</strong>.</p>
+                </div>
+              </div>
+
+            </div><!-- end track -->
+
+            <!-- Controls -->
+            <div class="carousel-controls">
+              <button class="carousel-arrow" id="carouselPrev" aria-label="Previous prompt">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <div class="carousel-dots" id="carouselDots"></div>
+              <button class="carousel-arrow" id="carouselNext" aria-label="Next prompt">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+
+          </div><!-- end carousel -->
+        </div>
+
+        <!-- Third: 22 primitives -->
+        <div class="feat-card third">
+          <div class="feat-icon">🎛️</div>
+          <div class="feat-title">22 Color Primitives</div>
+          <p class="feat-desc">A ready-to-use palette structure with 11 tints and 11 shades per hue.</p>
+        </div>
+
+        <!-- Third: Dark mode -->
+        <div class="feat-card third">
+          <div class="feat-icon">🌙</div>
+          <div class="feat-title">Light &amp; Dark Mode</div>
+          <p class="feat-desc">Token references and usage guidance optimized for both light and dark themes.</p>
+        </div>
+
+        <!-- Third: Tutorial -->
+        <div class="feat-card third">
+          <div class="feat-icon">🎬</div>
+          <div class="feat-title">Video Tutorial</div>
+          <p class="feat-desc">Step-by-step walkthrough covering Figma MCP setup and the full automation workflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INCLUDED -->
+    <section class="included reveal">
+      <div class="section-label">What's included</div>
+      <h2 class="section-title">Everything in one purchase</h2>
+      <p class="section-sub">One file. Lifetime access. No subscriptions.</p>
+
+      <div class="included-grid">
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">Full Component System</div>
+            <div class="included-desc">Flexible Figma component built for design system color documentation.</div>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">Prompt Automation Library</div>
+            <div class="included-desc">Tested prompts designed to drive Claude through color system creation end-to-end.
+            </div>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">WCAG + APCA Models</div>
+            <div class="included-desc">Both contrast models included. Evaluate now and prepare for upcoming standards.
+            </div>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">22 Color Primitives</div>
+            <div class="included-desc">Ready-to-use palette with 11 tints and shades to start immediately.</div>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">Light &amp; Dark Token Support</div>
+            <div class="included-desc">Token references for design systems using both light and dark modes.</div>
+          </div>
+        </div>
+        <div class="included-item">
+          <div class="included-check">✓</div>
+          <div class="included-text">
+            <div class="included-name">Step-by-Step Tutorial</div>
+            <div class="included-desc">Video walkthrough showing how to connect Claude, Figma MCP, and automate the
+              workflow.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUDIENCE -->
+    <section class="audience reveal">
+      <div class="section-label">Built for</div>
+      <h2 class="section-title">Who uses Color Swatch Pro</h2>
+      <p class="section-sub">From solo designers to cross-functional teams.</p>
+
+      <div class="audience-grid">
+        <div class="audience-card">
+          <div class="audience-role">Product Designers</div>
+          <p class="audience-desc">Build token-ready color systems quickly inside Figma without leaving your design
+            environment.</p>
+          <span class="audience-tag">Figma Native</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-role">Design System Teams</div>
+          <p class="audience-desc">Create consistent color documentation across products and keep your system up to date
+            at scale.</p>
+          <span class="audience-tag">Scalable</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-role">Accessibility Designers</div>
+          <p class="audience-desc">Evaluate contrast and WCAG/APCA compliance as you build — not as an afterthought.</p>
+          <span class="audience-tag">A11Y First</span>
+        </div>
+        <div class="audience-card">
+          <div class="audience-role">Engineers in Figma</div>
+          <p class="audience-desc">Understand color tokens and usage clearly through documented swatches built for
+            handoff.</p>
+          <span class="audience-tag">Dev-Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing reveal" id="pricing">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">One price. Yours forever.</h2>
+      <p class="section-sub" style="text-align:center; margin-left: auto; margin-right:auto;">The time saved from a
+        single design system setup typically pays for the file immediately.</p>
+
+      <div class="price-card">
+        <div class="price-amount">$29</div>
+        <p class="price-note">One-time purchase · Lifetime use in Figma</p>
+        <ul class="price-features">
+          <li>Full color swatch component system</li>
+          <li>Claude automation prompt library</li>
+          <li>WCAG and APCA contrast models</li>
+          <li>22 color variable primitives</li>
+          <li>Light and dark mode token support</li>
+          <li>Step-by-step video tutorial</li>
+          <li>Lifetime use — no subscription</li>
+        </ul>
+        <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
+          class="price-cta">
+          Download on Figma Community →
+        </a>
+        <p class="price-sub">Available in the Figma Community · Instant access after purchase</p>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="color-band" aria-hidden="true">
+      <div class="color-band-seg" style="background:var(--c11)"></div>
+      <div class="color-band-seg" style="background:var(--c8)"></div>
+      <div class="color-band-seg" style="background:var(--c7)"></div>
+      <div class="color-band-seg" style="background:var(--c6)"></div>
+      <div class="color-band-seg" style="background:var(--c5)"></div>
+      <div class="color-band-seg" style="background:var(--c4)"></div>
+      <div class="color-band-seg" style="background:var(--c3)"></div>
+      <div class="color-band-seg" style="background:var(--c2)"></div>
+      <div class="color-band-seg" style="background:var(--c1)"></div>
+      <div class="color-band-seg" style="background:var(--c9)"></div>
+      <div class="color-band-seg" style="background:var(--c10)"></div>
+    </div>
+    <footer>
+      <span class="footer-brand">Color Swatch Pro</span>
+      <span class="footer-copy">Built for Figma · Powered by Claude · Designed for design systems</span>
+    </footer>
+
+    <script>
+      // Intersection observer for reveal animations
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+      reveals.forEach(el => observer.observe(el));
+
+      // Staggered step animations
+      const steps = document.querySelectorAll('.step');
+      const stepsObserver = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          steps.forEach((step, i) => {
+            step.style.opacity = '0';
+            step.style.transform = 'translateY(20px)';
+            step.style.transition = `opacity 0.5s ${i * 0.08}s, transform 0.5s ${i * 0.08}s`;
+            setTimeout(() => {
+              step.style.opacity = '1';
+              step.style.transform = 'translateY(0)';
+            }, 100);
+          });
+          stepsObserver.disconnect();
+        }
+      }, { threshold: 0.1 });
+      if (steps.length) stepsObserver.observe(steps[0]);
+
+      // Prompt carousel
+      (function () {
+        const track = document.getElementById('carouselTrack');
+        const dotsContainer = document.getElementById('carouselDots');
+        const slides = track ? track.querySelectorAll('.carousel-slide') : [];
+        let current = 0;
+
+        if (!slides.length) return;
+
+        // Build dots
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', `Go to prompt ${i + 1}`);
+          dot.addEventListener('click', () => goTo(i));
+          dotsContainer.appendChild(dot);
+        });
+
+        function goTo(index) {
+          current = (index + slides.length) % slides.length;
+          track.style.transform = `translateX(-${current * 100}%)`;
+          track.style.transition = 'transform 0.4s cubic-bezier(0.4,0,0.2,1)';
+          dotsContainer.querySelectorAll('.carousel-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+        document.getElementById('carouselNext').addEventListener('click', () => goTo(current + 1));
+
+        // Auto-advance every 5s
+        let timer = setInterval(() => goTo(current + 1), 5000);
+        document.getElementById('promptCarousel').addEventListener('mouseenter', () => clearInterval(timer));
+        document.getElementById('promptCarousel').addEventListener('mouseleave', () => {
+          timer = setInterval(() => goTo(current + 1), 5000);
+        });
+      })();
+
+      // ── HERO DEMO ──
+      (function () {
+        function hexToRgb(hex) {
+          hex = hex.replace(/^#/, '');
+          if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+          const n = parseInt(hex, 16);
+          return { r: (n >> 16) & 255, g: (n >> 8) & 255, b: n & 255 };
+        }
+        function toLinear(c) {
+          c /= 255;
+          return c <= 0.04045 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        }
+        function getLum(r, g, b) {
+          return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
+        }
+        function calcAPCA(bgR, bgG, bgB, tR, tG, tB) {
+          const Ybg = getLum(bgR, bgG, bgB), Yt = getLum(tR, tG, tB);
+          if (Math.abs(Ybg - Yt) < 0.0005) return 0;
+          let Lc = Ybg >= Yt
+            ? (Math.pow(Ybg, 0.56) - Math.pow(Yt, 0.57)) * 1.14
+            : (Math.pow(Ybg, 0.65) - Math.pow(Yt, 0.62)) * 1.14;
+          return Math.abs(Lc) < 0.1 ? 0 : Math.round(Math.abs(Lc) * 100);
+        }
+        function calcWCAG(r1, g1, b1, r2, g2, b2) {
+          const L1 = getLum(r1, g1, b1) + 0.05, L2 = getLum(r2, g2, b2) + 0.05;
+          return Math.round((L1 > L2 ? L1 / L2 : L2 / L1) * 10) / 10;
+        }
+        function rgbToHsl(r, g, b) {
+          r /= 255; g /= 255; b /= 255;
+          const max = Math.max(r, g, b), min = Math.min(r, g, b);
+          let h, s, l = (max + min) / 2;
+          if (max === min) { h = s = 0; } else {
+            const d = max - min;
+            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            switch (max) {
+              case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
+              case g: h = ((b - r) / d + 2) / 6; break;
+              case b: h = ((r - g) / d + 4) / 6; break;
+            }
+          }
+          return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
+        }
+
+        let state = { hex: '4040a0', name: 'brand-primary', value: '500', darkMode: true, contrastMode: 'APCA', token1: false, token1val: 'token' };
+
+        function render() {
+          const rgb = hexToRgb(state.hex);
+          const hsl = rgbToHsl(rgb.r, rgb.g, rgb.b);
+          const txt = state.darkMode ? { r: 255, g: 255, b: 255 } : { r: 0, g: 0, b: 0 };
+
+          let scoreLabel, passes;
+          if (state.contrastMode === 'APCA') {
+            const apca = calcAPCA(rgb.r, rgb.g, rgb.b, txt.r, txt.g, txt.b);
+            scoreLabel = String(apca);
+            passes = [45, 60, 75, 90].map(t => apca >= t);
+          } else {
+            const ratio = calcWCAG(rgb.r, rgb.g, rgb.b, txt.r, txt.g, txt.b);
+            const level = ratio >= 7 ? 'AAA' : ratio >= 4.5 ? 'AA' : ratio >= 3 ? 'AA Lg' : 'FAIL';
+            scoreLabel = level + ' ' + ratio;
+            passes = [3, 4.5, 4.5, 7].map(t => ratio >= t);
+          }
+
+          document.getElementById('hdSwatchColor').style.background = '#' + state.hex;
+          const scoreEl = document.getElementById('hdScore');
+          scoreEl.textContent = scoreLabel;
+          scoreEl.style.color = `rgb(${txt.r},${txt.g},${txt.b})`;
+          document.getElementById('hdTokenName').textContent = '--' + state.name + '-' + state.value;
+          document.getElementById('hdHex').textContent = '#' + state.hex;
+          document.getElementById('hdHSL').innerHTML = `H: ${hsl.h} &nbsp;S: ${hsl.s} &nbsp;L: ${hsl.l}`;
+          document.getElementById('hdPropH').textContent = hsl.h;
+          document.getElementById('hdPropS').textContent = hsl.s;
+          document.getElementById('hdPropL').textContent = hsl.l;
+
+          const swatch = document.getElementById('hdSwatch');
+          swatch.className = 'hd-swatch ' + (state.darkMode ? 'dark-mode' : 'light-mode');
+
+          ['hdIconLarge', 'hdIconFluent', 'hdIconBody', 'hdIconPreferred'].forEach((id, i) => {
+            const el = document.getElementById(id);
+            el.textContent = passes[i] ? '✓' : '✗';
+            el.className = 'hd-row-icon ' + (passes[i] ? 'pass' : 'fail');
+          });
+
+          // Token badge
+          let badge = document.getElementById('hdTokenBadge');
+          const body = document.getElementById('hdSwatchBody');
+          if (state.token1) {
+            if (!badge) {
+              badge = document.createElement('div');
+              badge.id = 'hdTokenBadge';
+              badge.className = 'hd-token-badge';
+              badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M7 1.5L9.5 4H14v4.5L11.5 11 14 13.5V14h-4.5L7 11.5 4.5 14H4v-.5L6.5 11 4 8.5V4h4.5L7 1.5z" stroke="#a29bfe" stroke-width="1.2" fill="none"/></svg> <span id="hdTokenBadgeText"></span>';
+              body.appendChild(badge);
+            }
+            document.getElementById('hdTokenBadgeText').textContent = state.token1val;
+            badge.style.display = 'flex';
+          } else if (badge) {
+            badge.style.display = 'none';
+          }
+        }
+
+        const colorPicker = document.getElementById('hdColorPicker');
+        const hexInput = document.getElementById('hdHexInput');
+        colorPicker.addEventListener('input', e => { state.hex = e.target.value.replace('#', ''); hexInput.value = state.hex; render(); });
+        hexInput.addEventListener('input', e => {
+          const v = e.target.value.replace(/[^0-9a-fA-F]/g, '');
+          if (v.length === 6) { state.hex = v; colorPicker.value = '#' + v; render(); }
+        });
+        document.getElementById('hdName').addEventListener('input', e => { state.name = e.target.value; render(); });
+        document.getElementById('hdValue').addEventListener('input', e => { state.value = e.target.value; render(); });
+        document.getElementById('hdDarkMode').addEventListener('change', e => { state.darkMode = e.target.checked; render(); });
+        document.getElementById('hdToken1').addEventListener('change', e => {
+          state.token1 = e.target.checked;
+          document.getElementById('hdToken1Sub').style.display = e.target.checked ? 'flex' : 'none';
+          render();
+        });
+        document.getElementById('hdToken1Val').addEventListener('input', e => { state.token1val = e.target.value; render(); });
+        document.getElementById('hdContrastMode').addEventListener('click', e => {
+          if (e.target.dataset.val) {
+            state.contrastMode = e.target.dataset.val;
+            document.querySelectorAll('.hd-seg-btn').forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+            render();
+          }
+        });
+
+        render();
+      })();
+
+      // ── STEPS MOBILE CAROUSEL ──
+      (function () {
+        const grid = document.getElementById('stepsGrid');
+        const dotsEl = document.getElementById('stepsDots');
+        if (!grid || !dotsEl) return;
+
+        function isMobile() { return window.innerWidth <= 900; }
+
+        const steps = grid.querySelectorAll('.step');
+        let current = 0;
+        let startX = 0;
+        let isDragging = false;
+
+        // Build dots
+        steps.forEach((_, i) => {
+          const d = document.createElement('button');
+          d.className = 'steps-dot' + (i === 0 ? ' active' : '');
+          d.setAttribute('aria-label', 'Step ' + (i + 1));
+          d.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(d);
+        });
+
+        function goTo(index) {
+          if (!isMobile()) return;
+          current = Math.max(0, Math.min(index, steps.length - 1));
+          const w = grid.offsetWidth;
+          grid.scrollTo({ left: current * w, behavior: 'smooth' });
+          dotsEl.querySelectorAll('.steps-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === current);
+          });
+        }
+
+        // Touch swipe support
+        grid.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+        grid.addEventListener('touchend', e => {
+          const diff = startX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) goTo(diff > 0 ? current + 1 : current - 1);
+        }, { passive: true });
+
+        // Sync dots on scroll (snap)
+        grid.addEventListener('scroll', () => {
+          if (!isMobile()) return;
+          const w = grid.offsetWidth;
+          const idx = Math.round(grid.scrollLeft / w);
+          if (idx !== current) {
+            current = idx;
+            dotsEl.querySelectorAll('.steps-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+          }
+        }, { passive: true });
+      })();
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+        });
+      });
+    </script>
+  </body>
+
+</html>
