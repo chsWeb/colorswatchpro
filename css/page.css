@@ -1889,6 +1889,16 @@ footer {
     padding: 110px 24px 60px;
   }
 
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
   .hero-demo {
     display: none;
   }
