@@ -41,6 +41,7 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  background: var(--bg);
 }
 
 body {
@@ -94,7 +95,7 @@ nav {
   justify-content: space-between;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(10, 10, 11, 0.7);
+  background: rgba(10, 10, 11, 0.88);
   border-bottom: 1px solid var(--border);
 }
 
