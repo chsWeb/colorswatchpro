@@ -5,13 +5,13 @@
     <meta charset="UTF-8" />
     <meta name="author" content="Jono Young">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Color Swatch Pro for Figma — Design System Color Documentation</title>
+    <title>Color Swatch Pro for Figma — Design System Color Documentation, Claudemated</title>
     <meta name="description"
       content="Automate your design system color documentation in minutes. Built for Figma, powered by Claude AI." />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://colorswatchpro.com" />
-    <meta property="og:title" content="Color Swatch Pro for Figma — Design System Color Documentation" />
+    <meta property="og:title" content="Color Swatch Pro for Figma — Design System Color Documentation, Claudemated" />
     <meta property="og:description"
       content="Build complete, accessible, token-ready color palettes in minutes. Built for Figma, powered by Claude AI." />
     <meta property="og:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
@@ -22,7 +22,7 @@
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://colorswatchpro.com" />
-    <meta name="twitter:title" content="Color Swatch Pro for Figma — Design System Color Documentation" />
+    <meta name="twitter:title" content="Color Swatch Pro for Figma — Design System Color Documentation, Claudemated" />
     <meta name="twitter:description"
       content="Build complete, accessible, token-ready color palettes in minutes. Built for Figma, powered by Claude AI." />
     <meta name="twitter:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
@@ -67,30 +67,20 @@
 
   <body>
 
-    <!-- Color band top -->
-    <div class="color-band" aria-hidden="true">
-      <div class="color-band-seg" style="background:var(--c1)"></div>
-      <div class="color-band-seg" style="background:var(--c2)"></div>
-      <div class="color-band-seg" style="background:var(--c3)"></div>
-      <div class="color-band-seg" style="background:var(--c4)"></div>
-      <div class="color-band-seg" style="background:var(--c5)"></div>
-      <div class="color-band-seg" style="background:var(--c6)"></div>
-      <div class="color-band-seg" style="background:var(--c7)"></div>
-      <div class="color-band-seg" style="background:var(--c8)"></div>
-      <div class="color-band-seg" style="background:var(--c9)"></div>
-      <div class="color-band-seg" style="background:var(--c10)"></div>
-      <div class="color-band-seg" style="background:var(--c11)"></div>
-    </div>
-
     <!-- NAV -->
     <nav>
-      <a href="#" class="nav-logo">
-        <div class="nav-logo-dot"></div>
-        Color Swatch Pro
-        <span class="nav-beta">Beta</span>
-      </a>
+      <div class="nav-logo-wrap">
+        <label class="nav-toggle" aria-label="Toggle dark mode">
+          <input type="checkbox" id="navDarkMode" checked />
+          <span class="nav-toggle-track"></span>
+        </label>
+        <a href="#" class="nav-logo">
+          Color Swatch Pro
+          <span class="nav-beta">Alpha</span>
+        </a>
+      </div>
       <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
-        class="nav-cta">Get it — $29</a>
+        class="nav-cta">Get it · $29</a>
     </nav>
 
     <!-- HERO -->
@@ -100,7 +90,7 @@
           <span>✦</span> Figma Component + Claude Automation
         </div>
         <h1 class="hero-title">
-          Color documentation,<br>
+          Color Documentation,<br>
           <em>Claudemated!</em>
         </h1>
         <p class="hero-sub">
@@ -147,12 +137,21 @@
               <div class="hd-hex" id="hdHex">#4040a0</div>
               <div class="hd-hsl" id="hdHSL">H: 240 &nbsp;S: 43 &nbsp;L: 44</div>
               <div class="hd-rows">
-                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconLarge"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span
-                    class="hd-row-label">Large text:</span><span class="hd-row-val">45</span></div>
-                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconFluent"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span
-                    class="hd-row-label">Fluent text:</span><span class="hd-row-val">60</span></div>
-                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconBody"><svg width="8" height="8" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span
-                    class="hd-row-label">Body text:</span><span class="hd-row-val">75</span></div>
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconLarge"><svg width="8" height="8"
+                      viewBox="0 0 10 10" fill="none">
+                      <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg></span><span class="hd-row-label">Large text:</span><span class="hd-row-val">45</span></div>
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconFluent"><svg width="8" height="8"
+                      viewBox="0 0 10 10" fill="none">
+                      <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg></span><span class="hd-row-label">Fluent text:</span><span class="hd-row-val">60</span></div>
+                <div class="hd-row"><span class="hd-row-icon pass" id="hdIconBody"><svg width="8" height="8"
+                      viewBox="0 0 10 10" fill="none">
+                      <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg></span><span class="hd-row-label">Body text:</span><span class="hd-row-val">75</span></div>
                 <div class="hd-row"><span class="hd-row-icon fail" id="hdIconPreferred">✗</span><span
                     class="hd-row-label">Preferred:</span><span class="hd-row-val">90</span></div>
               </div>
@@ -524,14 +523,20 @@
 
       <div class="included-grid">
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">Full Component System</div>
             <div class="included-desc">Flexible Figma component built for design system color documentation.</div>
           </div>
         </div>
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">Prompt Automation Library</div>
             <div class="included-desc">Tested prompts designed to drive Claude through color system creation end-to-end.
@@ -539,7 +544,10 @@
           </div>
         </div>
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">WCAG + APCA Models</div>
             <div class="included-desc">Both contrast models included. Evaluate now and prepare for upcoming standards.
@@ -547,21 +555,30 @@
           </div>
         </div>
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">22 Color Primitives</div>
             <div class="included-desc">Ready-to-use palette with 11 tints and shades to start immediately.</div>
           </div>
         </div>
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">Light &amp; Dark Token Support</div>
             <div class="included-desc">Token references for design systems using both light and dark modes.</div>
           </div>
         </div>
         <div class="included-item">
-          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none"><path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="included-check"><svg width="12" height="12" viewBox="0 0 10 10" fill="none">
+              <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg></div>
           <div class="included-text">
             <div class="included-name">Step-by-Step Tutorial</div>
             <div class="included-desc">Video walkthrough showing how to connect Claude, Figma MCP, and automate the
@@ -578,32 +595,34 @@
       <p class="section-sub">From solo designers to cross-functional teams.</p>
 
       <div class="audience-carousel-wrap">
-      <div class="audience-grid" id="audienceGrid">
-        <div class="audience-card">
-          <div class="audience-role">Product Designers</div>
-          <p class="audience-desc">Build token-ready color systems quickly inside Figma without leaving your design
-            environment.</p>
-          <span class="audience-tag">Figma Native</span>
+        <div class="audience-grid" id="audienceGrid">
+          <div class="audience-card">
+            <div class="audience-role">Product Designers</div>
+            <p class="audience-desc">Build token-ready color systems quickly inside Figma without leaving your design
+              environment.</p>
+            <span class="audience-tag">Figma Native</span>
+          </div>
+          <div class="audience-card">
+            <div class="audience-role">Design System Teams</div>
+            <p class="audience-desc">Create consistent color documentation across products and keep your system up to
+              date
+              at scale.</p>
+            <span class="audience-tag">Scalable</span>
+          </div>
+          <div class="audience-card">
+            <div class="audience-role">Accessibility Designers</div>
+            <p class="audience-desc">Evaluate contrast and WCAG/APCA compliance as you build — not as an afterthought.
+            </p>
+            <span class="audience-tag">A11Y First</span>
+          </div>
+          <div class="audience-card">
+            <div class="audience-role">Engineers in Figma</div>
+            <p class="audience-desc">Understand color tokens and usage clearly through documented swatches built for
+              handoff.</p>
+            <span class="audience-tag">Dev-Ready</span>
+          </div>
         </div>
-        <div class="audience-card">
-          <div class="audience-role">Design System Teams</div>
-          <p class="audience-desc">Create consistent color documentation across products and keep your system up to date
-            at scale.</p>
-          <span class="audience-tag">Scalable</span>
-        </div>
-        <div class="audience-card">
-          <div class="audience-role">Accessibility Designers</div>
-          <p class="audience-desc">Evaluate contrast and WCAG/APCA compliance as you build — not as an afterthought.</p>
-          <span class="audience-tag">A11Y First</span>
-        </div>
-        <div class="audience-card">
-          <div class="audience-role">Engineers in Figma</div>
-          <p class="audience-desc">Understand color tokens and usage clearly through documented swatches built for
-            handoff.</p>
-          <span class="audience-tag">Dev-Ready</span>
-        </div>
-      </div>
-      <div class="audience-dots" id="audienceDots"></div>
+        <div class="audience-dots" id="audienceDots"></div>
       </div>
     </section>
 
@@ -654,6 +673,19 @@
     </footer>
 
     <script>
+      // ── NAV TOGGLE ↔ HERO DEMO DARK MODE SYNC ──
+      (function () {
+        const navToggle = document.getElementById('navDarkMode');
+        const heroToggle = document.getElementById('hdDarkMode');
+        navToggle.addEventListener('change', () => {
+          heroToggle.checked = navToggle.checked;
+          heroToggle.dispatchEvent(new Event('change'));
+        });
+        heroToggle.addEventListener('change', () => {
+          navToggle.checked = heroToggle.checked;
+        });
+      })();
+
       // Intersection observer for reveal animations
       const reveals = document.querySelectorAll('.reveal');
       const observer = new IntersectionObserver((entries) => {
