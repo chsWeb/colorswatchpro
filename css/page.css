@@ -1941,6 +1941,11 @@ footer {
     padding-right: 24px;
   }
 
+  .included-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 32px;
+  }
+
   .feat-card.large,
   .feat-card.medium,
   .feat-card.half,
