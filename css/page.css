@@ -1907,6 +1907,7 @@ footer {
 @media (max-width: 900px) {
   nav {
     padding: 16px 24px;
+    padding-top: max(16px, env(safe-area-inset-top));
   }
 
   .hero {
@@ -1922,6 +1923,7 @@ footer {
   }
 
   .btn-primary {
+    display: flex;
     width: 100%;
     justify-content: center;
   }
