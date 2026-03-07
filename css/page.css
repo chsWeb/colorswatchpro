@@ -828,10 +828,21 @@ em {
   color: var(--c11);
 }
 
-.step-icon {
-  font-size: 24px;
-  margin-bottom: 16px;
-  display: block;
+.feat-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  background: var(--bg-elevated);
+}
+
+.feat-icon img {
+  filter: brightness(0) invert(1);
+  opacity: 0.75;
 }
 
 .step-title {
@@ -921,18 +932,6 @@ em {
 
 .feat-card.full {
   grid-column: span 12;
-}
-
-.feat-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  margin-bottom: 20px;
-  background: var(--bg-elevated);
 }
 
 .feat-title {
@@ -2108,12 +2107,11 @@ footer {
     font-size: 17px;
   }
 
-  .step-icon {
+  .feat-icon {
     grid-column: 1;
     grid-row: 2;
     margin-bottom: 0;
     align-self: center;
-    font-size: 28px;
   }
 
   .step-title {
