@@ -2028,6 +2028,13 @@ footer {
   }
 }
 
+@media (max-width: 540px) {
+  .included-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 /* ── BETA BADGE ── */
 .nav-beta {
   font-size: 9px;
