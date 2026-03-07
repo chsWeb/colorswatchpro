@@ -708,12 +708,12 @@ nav {
   gap: 10px;
 }
 
-.section-label::before {
+/*.section-label::before {
   content: '';
   width: 20px;
   height: 1px;
   background: var(--accent);
-}
+}*/
 
 .section-title {
   font-family: var(--font-display);
@@ -1896,6 +1896,7 @@ footer {
     padding: 60px 24px 80px;
   }
 }
+
 /* ── BETA BADGE ── */
 .nav-beta {
   font-size: 9px;
