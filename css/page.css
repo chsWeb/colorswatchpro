@@ -95,7 +95,11 @@ nav {
   justify-content: space-between;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  background: rgba(10, 10, 11, 0.88);
+  background: linear-gradient(
+    to bottom,
+    hsl(240, 5%, 4%) env(safe-area-inset-top, 0px),
+    rgba(10, 10, 11, 0.88) env(safe-area-inset-top, 0px)
+  );
   border-bottom: 1px solid var(--border);
 }
 
@@ -842,6 +846,7 @@ em {
 }
 
 .feat-icon img {
+  -webkit-filter: brightness(0) invert(1);
   filter: brightness(0) invert(1);
   opacity: 0.75;
 }
@@ -1924,6 +1929,7 @@ footer {
 
   .btn-primary {
     display: flex;
+    width: -webkit-fill-available;
     width: 100%;
     justify-content: center;
   }
