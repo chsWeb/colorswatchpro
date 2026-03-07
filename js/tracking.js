@@ -146,42 +146,4 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ------------------------------------------------
-  // EASTER EGG — Nav toggle slot machine
-  // Cycles swatch through palette colors on toggle
-  // ------------------------------------------------
-  var navToggle = document.getElementById('navDarkMode');
-  var swatchColor = document.getElementById('hdSwatchColor');
-  if (navToggle && swatchColor) {
-    var isSpinning = false;
-    navToggle.addEventListener('change', function () {
-      if (isSpinning) return;
-      isSpinning = true;
-
-      var style = getComputedStyle(document.documentElement);
-      var palette = ['--c1','--c2','--c3','--c4','--c5','--c6','--c7','--c8','--c9','--c10','--c11']
-        .map(function (v) { return style.getPropertyValue(v).trim(); });
-
-      var original = swatchColor.style.background;
-      var total = 22; // ~2 full cycles
-      var i = 0;
-      var delay = 60;
-
-      function spin() {
-        swatchColor.style.background = palette[i % palette.length];
-        i++;
-        if (i < total) {
-          // slow down toward the end
-          delay = 60 + Math.pow(i / total, 2) * 200;
-          setTimeout(spin, delay);
-        } else {
-          swatchColor.style.background = original;
-          isSpinning = false;
-        }
-      }
-
-      spin();
-    });
-  }
-
 });

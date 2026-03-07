@@ -64,7 +64,8 @@
     </script>
 
     <!-- Your custom tracking logic — loads after Mixpanel is ready -->
-    <script src="/js/tracking.js" defer></script>
+    <script src="js/tracking.js" defer></script>
+    <script src="js/easter-egg.js" defer></script>
   </head>
 
   <body>
@@ -675,18 +676,6 @@
     </footer>
 
     <script>
-      // ── NAV TOGGLE ↔ HERO DEMO DARK MODE SYNC ──
-      (function () {
-        const navToggle = document.getElementById('navDarkMode');
-        const heroToggle = document.getElementById('hdDarkMode');
-        navToggle.addEventListener('change', () => {
-          heroToggle.checked = navToggle.checked;
-          heroToggle.dispatchEvent(new Event('change'));
-        });
-        heroToggle.addEventListener('change', () => {
-          navToggle.checked = heroToggle.checked;
-        });
-      })();
 
       // Intersection observer for reveal animations
       const reveals = document.querySelectorAll('.reveal');
