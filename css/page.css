@@ -780,7 +780,11 @@ em {
 }
 
 .step {
-  background: var(--bg-card);
+  background: linear-gradient(
+    160deg,
+    hsl(240, 10%, 11%) 0%,
+    hsl(240, 8%, 7%) 100%
+  );
   padding: 36px 32px;
   position: relative;
   transition: background 0.3s;
