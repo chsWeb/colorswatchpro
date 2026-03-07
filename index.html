@@ -240,6 +240,10 @@
               <span class="hd-toggle-track"></span>
             </label>
           </div>
+          <div class="hd-prop-row hd-sub" id="hdToken2Sub" style="display:none">
+            <span class="hd-prop-label">↳ token 2</span>
+            <input type="text" id="hdToken2Val" value="token" class="hd-input hd-short" />
+          </div>
         </div>
 
       </div>
@@ -800,7 +804,7 @@
           return { h: Math.round(h * 360), s: Math.round(s * 100), l: Math.round(l * 100) };
         }
 
-        let state = { hex: '4040a0', name: 'brand-primary', value: '500', darkMode: true, contrastMode: 'APCA', token1: false, token1val: 'token' };
+        let state = { hex: '4040a0', name: 'brand-primary', value: '500', darkMode: true, contrastMode: 'APCA', token1: false, token1val: 'token', token2: false, token2val: 'token' };
 
         function render() {
           const rgb = hexToRgb(state.hex);
@@ -841,22 +845,26 @@
             el.className = 'hd-row-icon ' + (passes[i] ? 'pass' : 'fail');
           });
 
-          // Token badge
-          let badge = document.getElementById('hdTokenBadge');
+          // Token badges
           const body = document.getElementById('hdSwatchBody');
-          if (state.token1) {
-            if (!badge) {
-              badge = document.createElement('div');
-              badge.id = 'hdTokenBadge';
-              badge.className = 'hd-token-badge';
-              badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.1963 3V9L6 12L0.803711 9V3L6 0L11.1963 3ZM1.80371 3.57715V8.42188L6 10.8447L10.1963 8.42188V3.57715L6 1.1543L1.80371 3.57715Z" fill="currentColor"/><path d="M5 5H7V7H5V5Z" fill="currentColor"/></svg> <span id="hdTokenBadgeText"></span>';
-              body.appendChild(badge);
+          function syncBadge(id, textId, active, val) {
+            let badge = document.getElementById(id);
+            if (active) {
+              if (!badge) {
+                badge = document.createElement('div');
+                badge.id = id;
+                badge.className = 'hd-token-badge';
+                badge.innerHTML = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.1963 3V9L6 12L0.803711 9V3L6 0L11.1963 3ZM1.80371 3.57715V8.42188L6 10.8447L10.1963 8.42188V3.57715L6 1.1543L1.80371 3.57715Z" fill="currentColor"/><path d="M5 5H7V7H5V5Z" fill="currentColor"/></svg> <span id="' + textId + '"></span>';
+                body.appendChild(badge);
+              }
+              document.getElementById(textId).textContent = val;
+              badge.style.display = 'flex';
+            } else if (badge) {
+              badge.style.display = 'none';
             }
-            document.getElementById('hdTokenBadgeText').textContent = state.token1val;
-            badge.style.display = 'flex';
-          } else if (badge) {
-            badge.style.display = 'none';
           }
+          syncBadge('hdTokenBadge', 'hdTokenBadgeText', state.token1, state.token1val);
+          syncBadge('hdTokenBadge2', 'hdTokenBadgeText2', state.token2, state.token2val);
         }
 
         const colorPicker = document.getElementById('hdColorPicker');
@@ -875,6 +883,12 @@
           render();
         });
         document.getElementById('hdToken1Val').addEventListener('input', e => { state.token1val = e.target.value; render(); });
+        document.getElementById('hdToken2').addEventListener('change', e => {
+          state.token2 = e.target.checked;
+          document.getElementById('hdToken2Sub').style.display = e.target.checked ? 'flex' : 'none';
+          render();
+        });
+        document.getElementById('hdToken2Val').addEventListener('input', e => { state.token2val = e.target.value; render(); });
         document.getElementById('hdContrastMode').addEventListener('click', e => {
           if (e.target.dataset.val) {
             state.contrastMode = e.target.dataset.val;
