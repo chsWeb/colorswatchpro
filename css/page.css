@@ -37,6 +37,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -1886,7 +1887,9 @@ footer {
 
   .hero {
     grid-template-columns: 1fr;
-    padding: 110px 24px 60px;
+    min-height: unset;
+    align-items: start;
+    padding: 100px 24px 60px;
   }
 
   .hero-actions {
