@@ -181,6 +181,9 @@ nav {
 
 /* ── HERO ── */
 .hero {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -188,7 +191,6 @@ nav {
   gap: 56px;
   padding: 120px 48px 80px;
   position: relative;
-  overflow: hidden;
 }
 
 .hero::after {
@@ -717,20 +719,13 @@ em {
 
 /* ── WORKFLOW ── */
 .workflow {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 120px 48px;
   position: relative;
 }
 
-.workflow::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent, var(--border) 20%, var(--border) 80%, transparent);
-  transform: translateX(-50%);
-}
 
 .section-label {
   font-size: 11px;
@@ -799,7 +794,15 @@ em {
   letter-spacing: 0.1em;
   color: var(--text-dim);
   margin-bottom: 20px;
+  transition: color 0.3s;
 }
+
+.step:nth-child(1):hover .step-num { color: var(--c1); }
+.step:nth-child(2):hover .step-num { color: var(--c3); }
+.step:nth-child(3):hover .step-num { color: var(--c5); }
+.step:nth-child(4):hover .step-num { color: var(--c7); }
+.step:nth-child(5):hover .step-num { color: var(--c9); }
+.step:nth-child(6):hover .step-num { color: var(--c11); }
 
 .step-icon {
   font-size: 24px;
@@ -838,6 +841,9 @@ em {
 
 /* ── FEATURES GRID ── */
 .features {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 80px 48px 120px;
 }
 
@@ -1579,6 +1585,9 @@ em {
 
 /* ── INCLUDED ── */
 .included {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 80px 48px 120px;
   background: var(--bg-card);
   border-top: 1px solid var(--border);
@@ -1630,6 +1639,9 @@ em {
 
 /* ── WHO IT'S FOR ── */
 .audience {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 120px 48px;
 }
 
@@ -1713,6 +1725,9 @@ em {
 
 /* ── PRICING ── */
 .pricing {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 80px 48px 120px;
   display: flex;
   flex-direction: column;
@@ -1748,10 +1763,12 @@ em {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--c8), var(--accent), var(--c5));
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120%;
+  height: 280px;
+  background: radial-gradient(ellipse at top, hsla(0, 0%, 100%, 0.08) 0%, transparent 65%);
+  pointer-events: none;
 }
 
 .price-amount {
@@ -1926,13 +1943,15 @@ footer {
 
 /* ── VIDEO SECTION ── */
 .video-section {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 80px 48px 120px;
 }
 
 .video-wrapper {
   position: relative;
   width: 100%;
-  max-width: 900px;
   margin: 0 auto;
   border-radius: 16px;
   overflow: hidden;
@@ -2012,9 +2031,6 @@ footer {
 }
 
 @media (max-width: 900px) {
-  .workflow::before {
-    display: none;
-  }
 
   .steps {
     display: flex !important;
