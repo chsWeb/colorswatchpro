@@ -13,37 +13,47 @@
     '90df5651-8e13-4ec0-abcb-671a2082e7a0'
   ];
 
-  // ------------------------------------------------
-  // USER PROFILING
-  // Promotes every anonymous visitor into a real
-  // profile so they appear in Mixpanel > Users
-  // ------------------------------------------------
-  mixpanel.identify(mixpanel.get_distinct_id());
+  // Mixpanel SDK loads async — wait until get_distinct_id is available
+  function run(retries) {
+    if (typeof mixpanel === 'undefined' || typeof mixpanel.get_distinct_id !== 'function') {
+      if (retries > 0) setTimeout(function () { run(retries - 1); }, 150);
+      return;
+    }
 
-  // Recorded once, on their very first visit — never overwritten
-  mixpanel.people.set_once({
-    first_seen: new Date().toISOString(),
-    initial_referrer: document.referrer || 'direct'
-  });
+    // ------------------------------------------------
+    // USER PROFILING
+    // Promotes every anonymous visitor into a real
+    // profile so they appear in Mixpanel > Users
+    // ------------------------------------------------
+    mixpanel.identify(mixpanel.get_distinct_id());
 
-  // Updated on every visit
-  mixpanel.people.set({
-    last_seen: new Date().toISOString()
-  });
-
-  // ------------------------------------------------
-  // SPAM DETECTION
-  // Flags known spammer device IDs on any future visit,
-  // regardless of what referrer domain they spoof
-  // ------------------------------------------------
-  var currentDeviceId = mixpanel.get_distinct_id().replace('$device:', '');
-
-  if (knownSpamDeviceIds.includes(currentDeviceId)) {
-    mixpanel.people.set({
-      is_spammer: true,
-      spammer_type: 'referral_spoofing'
+    // Recorded once, on their very first visit — never overwritten
+    mixpanel.people.set_once({
+      first_seen: new Date().toISOString(),
+      initial_referrer: document.referrer || 'direct'
     });
+
+    // Updated on every visit
+    mixpanel.people.set({
+      last_seen: new Date().toISOString()
+    });
+
+    // ------------------------------------------------
+    // SPAM DETECTION
+    // Flags known spammer device IDs on any future visit,
+    // regardless of what referrer domain they spoof
+    // ------------------------------------------------
+    var currentDeviceId = mixpanel.get_distinct_id().replace('$device:', '');
+
+    if (knownSpamDeviceIds.includes(currentDeviceId)) {
+      mixpanel.people.set({
+        is_spammer: true,
+        spammer_type: 'referral_spoofing'
+      });
+    }
   }
+
+  run(20); // retry up to 20× (~3 seconds)
 
 })();
 

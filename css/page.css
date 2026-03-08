@@ -1184,9 +1184,55 @@ em {
 
 .prompt-header {
   display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
   gap: 8px;
   margin-bottom: 14px;
+}
+
+.prompt-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.prompt-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.prompt-copy {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+  padding: 5px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+
+.prompt-copy:hover {
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.prompt-copy.is-copied {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.carousel-pause.is-paused {
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .prompt-dot {
