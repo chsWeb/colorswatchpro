@@ -104,7 +104,8 @@ body::before {
   pointer-events: none;
 }
 
-Signup Form NAV */ nav {
+/* MARK: Nav */
+nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -206,7 +207,8 @@ Signup Form NAV */ nav {
   box-shadow: 0 4px 20px var(--accent-glow);
 }
 
-/Signup Form HERO */ .hero {
+/* MARK: Hero */
+.hero {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
@@ -1477,7 +1479,7 @@ em {
   opacity: 0.8;
 }
 
-/* PROPERTIESSignup Form */
+/* MARK: Properties Panel */
 .pg-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1689,7 +1691,7 @@ em {
   }
 }
 
-/* INSignup Form */
+/* MARK: Included */
 .included {
   max-width: 1280px;
   margin-left: auto;
@@ -1742,7 +1744,7 @@ em {
   line-height: 1.6;
 }
 
-/* WHO ITSignup Form FOR */
+/* MARK: Who It's For */
 .audience {
   max-width: 1280px;
   margin-left: auto;
@@ -1799,7 +1801,7 @@ em {
   color: var(--accent);
 }
 
-/* AUDIENCE CAROUSEL (mSignup Form) */
+/* MARK: Audience Carousel (mobile) */
 .audience-carousel-wrap {
   position: relative;
 }
@@ -1829,7 +1831,7 @@ em {
   box-shadow: 0 0 6px var(--accent-glow);
 }
 
-/* PSignup Form */
+/* MARK: Pricing */
 .pricing {
   max-width: 1280px;
   margin-left: auto;
@@ -1950,7 +1952,7 @@ em {
   color: var(--text-dim);
 }
 
-/* MARK: Signup Form */
+/* MARK: Signup */
 .signup {
   padding: 120px 48px;
   display: flex;
@@ -2096,7 +2098,7 @@ em {
   }
 }
 
-/* Signup Form */
+/* MARK: Footer */
 footer {
   padding: 48px;
   border-top: 1px solid var(--border);
@@ -2120,7 +2122,7 @@ footer {
   color: var(--text-dim);
 }
 
-/* COLOSignup Form BAND */
+/* MARK: Color Band */
 .color-band {
   height: 4px;
   display: flex;
@@ -2130,7 +2132,7 @@ footer {
   flex: 1;
 }
 
-/* RESPSignup Form */
+/* MARK: Responsive */
 @media (max-width: 900px) {
   nav {
     padding: 16px 24px;
@@ -2201,7 +2203,7 @@ footer {
   }
 }
 
-/* INTERSECTION ANIMSignup Form */
+/* MARK: Intersection Animations */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -2213,7 +2215,7 @@ footer {
   transform: translateY(0);
 }
 
-/* VIDEO SSignup Form */
+/* MARK: Video Section */
 .video-section {
   max-width: 1280px;
   margin-left: auto;
@@ -2263,7 +2265,7 @@ footer {
   }
 }
 
-/* BETASignup Form */
+/* MARK: Beta Badge */
 .nav-beta {
   font-size: 12px;
   font-weight: 700;
@@ -2279,7 +2281,7 @@ footer {
   margin-left: -4px;
 }
 
-/* STEPS CAROUSEL (mSignup Form) */
+/* MARK: Steps Carousel (mobile) */
 .steps-carousel-wrap {
   position: relative;
 }
