@@ -1056,6 +1056,8 @@
               signupForm.style.display = 'none';
               document.getElementById('signupSuccess').style.display = 'block';
             } else {
+              const data = await res.json();
+              console.error('Formspree error:', res.status, data);
               btn.textContent = 'Try again';
               btn.disabled = false;
             }
@@ -1065,6 +1067,7 @@
           }
         });
       }
+
     </script>
   </body>
 
