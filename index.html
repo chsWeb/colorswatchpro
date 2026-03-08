@@ -187,7 +187,7 @@
             </label>
           </div>
 
-          <div class="hd-divider"></div>
+          <!--<div class="hd-divider"></div>-->
 
           <div class="hd-prop-row">
             <span class="hd-prop-label">Color</span>
@@ -207,7 +207,7 @@
             <input type="text" id="hdValue" value="500" class="hd-input hd-short" />
           </div>
 
-          <div class="hd-divider"></div>
+          <!--<div class="hd-divider"></div>-->
 
           <div class="hd-prop-row hd-readonly">
             <span class="hd-prop-label">↳ Hue</span>
@@ -222,7 +222,7 @@
             <span class="hd-prop-val" id="hdPropL">44</span>
           </div>
 
-          <div class="hd-divider"></div>
+          <!--<div class="hd-divider"></div>-->
 
           <div class="hd-prop-row">
             <span class="hd-prop-label">Token 1</span>
@@ -326,7 +326,7 @@
       <h2 class="section-title">Watch the full walkthrough</h2>
       <p class="section-sub">See how Claude and Color Swatch Pro work together to build a complete, accessible color
         system in minutes.</p>
-      <div style="position:relative;padding-top:56.25%;"><iframe
+      <div style="position:relative;padding-top:56.25%;" id="walkthrough"><iframe
           src="https://player.mediadelivery.net/embed/349534/c23907bc-ff99-4578-98df-11960ce8ce51?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
           loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;"
           allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;" allowfullscreen="true"></iframe>
@@ -340,7 +340,7 @@
 
       <div class="features-grid">
         <!-- Large: Swatch preview -->
-        <div class="feat-card large">
+        <div class="feat-card large image-bottom">
           <div class="feat-icon"><img src="images/icon-whatsinside-componentDoc.svg" alt="Full Documentation Component"
               width="24" height="24" border="0" /></div>
           <div class="feat-title">Full Documentation Component</div>
@@ -357,20 +357,28 @@
           <p class="feat-desc">Toggle between contrast models. Meet today's WCAG standard while preparing for APCA — the
             next generation accessibility scoring model.</p>
           <div class="a11y-demo">
-            <div class="a11y-row">
-              <span class="a11y-row-label">Large Text</span>
+            <div class="a11y-row"
+              data-tooltip="Lc 45+ — Headings &amp; display text. Larger size compensates for lower contrast.">
+              <span class="a11y-row-label">Large Text <img src="images/icon-info.svg" class="a11y-info" width="12"
+                  height="12" alt="" /></span>
               <span class="badge-pill pass">PASS 88</span>
             </div>
-            <div class="a11y-row">
-              <span class="a11y-row-label">Fluent Text</span>
+            <div class="a11y-row"
+              data-tooltip="Lc 60+ — UI labels, navigation &amp; captions. Mid-range contrast for smaller non-body text.">
+              <span class="a11y-row-label">Fluent Text <img src="images/icon-info.svg" class="a11y-info" width="12"
+                  height="12" alt="" /></span>
               <span class="badge-pill pass">PASS 88</span>
             </div>
-            <div class="a11y-row">
-              <span class="a11y-row-label">Body Text</span>
+            <div class="a11y-row"
+              data-tooltip="Lc 75+ — Paragraph &amp; reading text. Higher contrast for comfortable extended reading.">
+              <span class="a11y-row-label">Body Text <img src="images/icon-info.svg" class="a11y-info" width="12"
+                  height="12" alt="" /></span>
               <span class="badge-pill pass">PASS 88</span>
             </div>
-            <div class="a11y-row">
-              <span class="a11y-row-label">Preferred</span>
+            <div class="a11y-row"
+              data-tooltip="Lc 90+ — The gold standard. Maximum readability for any text size or weight.">
+              <span class="a11y-row-label">Preferred <img src="images/icon-info.svg" class="a11y-info" width="12"
+                  height="12" alt="" /></span>
               <span class="badge-pill fail">FAIL 88</span>
             </div>
           </div>
@@ -397,8 +405,9 @@
           <div class="feat-icon"><img src="images/icon-whatsinside-workflow.svg" alt="Claude Automation Prompts"
               width="24" height="24" border="0" /></div>
           <div class="feat-title">Claude Automation Prompts</div>
-          <p class="feat-desc">6 tested prompts designed for the Figma MCP workflow. Run them in sequence to build a
-            complete color system from scratch.</p>
+          <p class="feat-desc">Check the <a href="#walkthrough">walkthrough video above</a> for copy &amp; paste prompt
+            templates designed for the Figma MCP workflow. Run them in sequence to build a complete color system from
+            scratch. <em>#claudemate</em></p>
 
           <!-- Carousel -->
           <div class="prompt-carousel" id="promptCarousel">
