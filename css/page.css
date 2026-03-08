@@ -908,6 +908,15 @@ em {
   padding: 32px;
   transition: border-color 0.3s, transform 0.3s;
   position: relative;
+
+  & img[alt="component properties"] {
+    display: block;
+    padding-top: 24px;
+  }
+}
+
+.feat-card.large:has(img[alt="component properties"]) {
+  padding-bottom: 0;
 }
 
 .feat-card:hover {
