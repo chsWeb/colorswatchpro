@@ -115,7 +115,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: hsla(240, 5%, 4%, 0.88);
+  background: hsla(240, 5%, 4%, 0.74);
   -webkit-backdrop-filter: blur(16px);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -429,6 +429,17 @@ nav {
   font-size: 13px;
   font-weight: 600;
   color: #a29bfe;
+}
+
+.hd-token-badge--lg {
+  font-size: 16px;
+  gap: 7px;
+  font-family: courier, monospace;
+
+  & svg {
+    width: 15px;
+    height: 15px;
+  }
 }
 
 /* MARK: Hero Panel */
@@ -936,9 +947,12 @@ em {
   padding: 32px;
   transition: border-color 0.3s, transform 0.3s;
   position: relative;
+  overflow: hidden;
 
   & img[alt="component properties"] {
     display: block;
+    width: 100%;
+    height: auto;
     padding-top: 24px;
   }
 }
@@ -1137,7 +1151,7 @@ em {
 
 /* Token viz */
 .token-viz {
-  margin-top: 24px;
+  margin-block: 24px;
   font-family: 'Courier New', monospace;
   font-size: 14px;
   background: var(--bg-elevated);
@@ -1805,10 +1819,12 @@ em {
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 6px 10px 4px 10px;
   border-radius: 4px;
   background: var(--accent-dim);
-  color: var(--accent);
+  /*color: var(--accent);*/
+  color: hsl(from var(--accent) h s 40);
+
 }
 
 /* MARK: Audience Carousel (mobile) */
@@ -1977,6 +1993,11 @@ em {
   max-width: 640px;
   width: 100%;
   text-align: center;
+
+  & h2,
+  p {
+    text-wrap: balance;
+  }
 }
 
 .signup-title {
@@ -2281,7 +2302,8 @@ footer {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  /*color: var(--accent);*/
+  color: hsl(from var(--accent) h s 30);
   background: var(--accent-dim);
   padding: 3px 6px 2px 6px;
   border-radius: 4px;
