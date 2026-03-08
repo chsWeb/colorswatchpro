@@ -65,7 +65,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ── SCROLLBAR ── */
+/* SCRSignup Form */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -79,7 +79,7 @@ body {
   border-radius: 2px;
 }
 
-/* ── NOISE OVERLAY ── */
+/* NOISE OSignup Form */
 body::before {
   content: '';
   position: fixed;
@@ -92,7 +92,7 @@ body::before {
   opacity: 0.6;
 }
 
-/* ── SAFE AREA CAP ── */
+/* SAFE ARSignup Form CAP */
 .safe-area-cap {
   position: fixed;
   top: 0;
@@ -104,8 +104,7 @@ body::before {
   pointer-events: none;
 }
 
-/* ── NAV ── */
-nav {
+Signup Form NAV */ nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -207,8 +206,7 @@ nav {
   box-shadow: 0 4px 20px var(--accent-glow);
 }
 
-/* ── HERO ── */
-.hero {
+/Signup Form HERO */ .hero {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
@@ -237,7 +235,7 @@ nav {
   position: relative;
 }
 
-/* ── HERO DEMO ── */
+/* HERSignup Form DEMO */
 .hero-demo {
   position: relative;
   display: grid;
@@ -431,7 +429,7 @@ nav {
   color: #a29bfe;
 }
 
-/* ── HERO PANEL ── */
+/* HEROSignup Form */
 .hd-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -751,7 +749,7 @@ em {
   }
 }
 
-/* ── WORKFLOW ── */
+/* WOSignup Form */
 .workflow {
   max-width: 1280px;
   margin-left: auto;
@@ -903,7 +901,7 @@ em {
   opacity: 1;
 }
 
-/* ── FEATURES GRID ── */
+/* FEATURESignup Form GRID */
 .features {
   max-width: 1280px;
   margin-left: auto;
@@ -1184,7 +1182,7 @@ em {
   font-weight: 500;
 }
 
-/* ── PROMPT CAROUSEL ── */
+/* PROMPT CASignup Form */
 .prompt-carousel {
   margin-top: 20px;
   position: relative;
@@ -1269,7 +1267,7 @@ em {
   box-shadow: 0 0 6px var(--accent-glow);
 }
 
-/* ── PLAYGROUND ── */
+/* PLAYSignup Form */
 .playground {
   padding: 80px 32px 120px;
   background: var(--bg);
@@ -1283,7 +1281,7 @@ em {
   margin-top: 16px;
 }
 
-/* ── SWATCH PREVIEW ── */
+/* SWATCH PSignup Form */
 .pg-preview {
   display: flex;
   flex-direction: column;
@@ -1479,7 +1477,7 @@ em {
   opacity: 0.8;
 }
 
-/* ── PROPERTIES PANEL ── */
+/* PROPERTIESSignup Form */
 .pg-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1691,7 +1689,7 @@ em {
   }
 }
 
-/* ── INCLUDED ── */
+/* INSignup Form */
 .included {
   max-width: 1280px;
   margin-left: auto;
@@ -1744,7 +1742,7 @@ em {
   line-height: 1.6;
 }
 
-/* ── WHO IT'S FOR ── */
+/* WHO ITSignup Form FOR */
 .audience {
   max-width: 1280px;
   margin-left: auto;
@@ -1801,7 +1799,7 @@ em {
   color: var(--accent);
 }
 
-/* ── AUDIENCE CAROUSEL (mobile) ── */
+/* AUDIENCE CAROUSEL (mSignup Form) */
 .audience-carousel-wrap {
   position: relative;
 }
@@ -1831,7 +1829,7 @@ em {
   box-shadow: 0 0 6px var(--accent-glow);
 }
 
-/* ── PRICING ── */
+/* PSignup Form */
 .pricing {
   max-width: 1280px;
   margin-left: auto;
@@ -1952,7 +1950,7 @@ em {
   color: var(--text-dim);
 }
 
-/* ── SIGNUP ── */
+/* MARK: Signup Form */
 .signup {
   padding: 120px 48px;
   display: flex;
@@ -2088,15 +2086,17 @@ em {
   .signup-card {
     padding: 36px 24px;
   }
+
   .signup-fields {
     grid-template-columns: 1fr;
   }
+
   .signup-field-email {
     grid-column: span 1;
   }
 }
 
-/* ── FOOTER ── */
+/* Signup Form */
 footer {
   padding: 48px;
   border-top: 1px solid var(--border);
@@ -2120,7 +2120,7 @@ footer {
   color: var(--text-dim);
 }
 
-/* ── COLOR BAND ── */
+/* COLOSignup Form BAND */
 .color-band {
   height: 4px;
   display: flex;
@@ -2130,7 +2130,7 @@ footer {
   flex: 1;
 }
 
-/* ── RESPONSIVE ── */
+/* RESPSignup Form */
 @media (max-width: 900px) {
   nav {
     padding: 16px 24px;
@@ -2201,7 +2201,7 @@ footer {
   }
 }
 
-/* ── INTERSECTION ANIMATIONS ── */
+/* INTERSECTION ANIMSignup Form */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -2213,7 +2213,7 @@ footer {
   transform: translateY(0);
 }
 
-/* ── VIDEO SECTION ── */
+/* VIDEO SSignup Form */
 .video-section {
   max-width: 1280px;
   margin-left: auto;
@@ -2263,7 +2263,7 @@ footer {
   }
 }
 
-/* ── BETA BADGE ── */
+/* BETASignup Form */
 .nav-beta {
   font-size: 12px;
   font-weight: 700;
@@ -2279,7 +2279,7 @@ footer {
   margin-left: -4px;
 }
 
-/* ── STEPS CAROUSEL (mobile) ── */
+/* STEPS CAROUSEL (mSignup Form) */
 .steps-carousel-wrap {
   position: relative;
 }
