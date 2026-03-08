@@ -65,7 +65,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* SCRSignup Form */
+/* MARK: Scrollbar */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -79,7 +79,7 @@ body {
   border-radius: 2px;
 }
 
-/* NOISE OSignup Form */
+/* MARK: Noise Overlay */
 body::before {
   content: '';
   position: fixed;
@@ -92,7 +92,7 @@ body::before {
   opacity: 0.6;
 }
 
-/* SAFE ARSignup Form CAP */
+/* MARK: Safe Area Cap */
 .safe-area-cap {
   position: fixed;
   top: 0;
@@ -235,7 +235,7 @@ Signup Form NAV */ nav {
   position: relative;
 }
 
-/* HERSignup Form DEMO */
+/* MARK: Hero Demo */
 .hero-demo {
   position: relative;
   display: grid;
@@ -429,7 +429,7 @@ Signup Form NAV */ nav {
   color: #a29bfe;
 }
 
-/* HEROSignup Form */
+/* MARK: Hero Panel */
 .hd-panel {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -749,7 +749,7 @@ em {
   }
 }
 
-/* WOSignup Form */
+/* MARK: Workflow */
 .workflow {
   max-width: 1280px;
   margin-left: auto;
@@ -901,7 +901,7 @@ em {
   opacity: 1;
 }
 
-/* FEATURESignup Form GRID */
+/* MARK: Features Grid */
 .features {
   max-width: 1280px;
   margin-left: auto;
@@ -1182,7 +1182,7 @@ em {
   font-weight: 500;
 }
 
-/* PROMPT CASignup Form */
+/* MARK: Prompt Carousel */
 .prompt-carousel {
   margin-top: 20px;
   position: relative;
@@ -1267,7 +1267,7 @@ em {
   box-shadow: 0 0 6px var(--accent-glow);
 }
 
-/* PLAYSignup Form */
+/* MARK: Playground */
 .playground {
   padding: 80px 32px 120px;
   background: var(--bg);
@@ -1281,7 +1281,7 @@ em {
   margin-top: 16px;
 }
 
-/* SWATCH PSignup Form */
+/* MARK: Swatch Preview */
 .pg-preview {
   display: flex;
   flex-direction: column;
