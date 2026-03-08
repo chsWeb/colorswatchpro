@@ -895,12 +895,22 @@ em {
   left: 0;
   right: 0;
   height: 2px;
+  background: var(--step-gradient);
   opacity: 0;
   transition: opacity 0.3s;
 }
 
 .step:hover .step-accent {
   opacity: 1;
+}
+
+.step .feat-icon {
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.3s ease;
+}
+
+.step:hover .feat-icon {
+  color: var(--step-color);
 }
 
 /* MARK: Features Grid */
