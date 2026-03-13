@@ -68,6 +68,7 @@
 
 /* MARK: Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -88,8 +89,8 @@
 }
 
 
-  overflow-x: hidden;
-  background: var(--bg);
+overflow-x: hidden;
+background: var(--bg);
 }
 
 a {
@@ -246,6 +247,20 @@ nav {
   border-radius: 4px;
   text-decoration: none;
   transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+@media (width < 680px) {
+  .hide-a11y {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
 }
 
 .nav-cta:hover {
@@ -511,7 +526,7 @@ nav {
 
 .hd-panel-title {
   font-family: 'Gabarito', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-secondary);
 }
@@ -545,7 +560,7 @@ nav {
 }
 
 .hd-prop-label {
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-secondary);
   white-space: nowrap;
   flex-shrink: 0;
@@ -553,7 +568,7 @@ nav {
 
 .hd-prop-val {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 13px;
   color: var(--text-primary);
 }
 
@@ -574,7 +589,7 @@ nav {
 .hd-seg-btn {
   padding: 4px 10px;
   font-family: 'Gabarito', sans-serif;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--text-dim);
   background: none;
@@ -2539,6 +2554,7 @@ footer {
     display: flex;
   }
 }
+
 /* ============================================================
    MARK: High Contrast Mode
    Activated via data-hc on <html> by the nav HC toggle.
@@ -2559,11 +2575,16 @@ html[data-hc] {
   --border-bright: hsla(0, 0%, 100%, 0.44);
 
   /* Text — all raised to meet APCA thresholds */
-  --text-primary: #ffffff;                    /* Lc ~106 / 19.6:1 */
-  --text-secondary: hsl(245, 10%, 80%);       /* Lc ~78  / ~10:1  */
-  --text-secondary-aa: hsl(245, 8%, 91%);     /* Lc ~93  / ~14:1  */
-  --text-dim: hsl(245, 10%, 68%);             /* Lc ~62  / ~7:1   */
-  --text-link: hsl(74, 100%, 74%);            /* Lc ~73  / 5.9:1  */
+  --text-primary: #ffffff;
+  /* Lc ~106 / 19.6:1 */
+  --text-secondary: hsl(245, 10%, 80%);
+  /* Lc ~78  / ~10:1  */
+  --text-secondary-aa: hsl(245, 8%, 91%);
+  /* Lc ~93  / ~14:1  */
+  --text-dim: hsl(245, 10%, 68%);
+  /* Lc ~62  / ~7:1   */
+  --text-link: hsl(74, 100%, 74%);
+  /* Lc ~73  / 5.9:1  */
 
   /* Accent */
   --accent: hsl(74, 100%, 70%);
@@ -2572,16 +2593,16 @@ html[data-hc] {
 
   /* Mute the decorative palette — desaturated so color-band
      and step accents don't flash vivid hues in HC mode */
-  --c1:  hsl(0,   30%, 65%);
-  --c2:  hsl(29,  30%, 62%);
-  --c3:  hsl(48,  30%, 60%);
-  --c4:  hsl(74,  30%, 62%);
-  --c5:  hsl(152, 30%, 55%);
-  --c6:  hsl(180, 30%, 52%);
-  --c7:  hsl(213, 30%, 62%);
-  --c8:  hsl(244, 30%, 70%);
-  --c9:  hsl(339, 30%, 65%);
-  --c10: hsl(39,  30%, 65%);
+  --c1: hsl(0, 30%, 65%);
+  --c2: hsl(29, 30%, 62%);
+  --c3: hsl(48, 30%, 60%);
+  --c4: hsl(74, 30%, 62%);
+  --c5: hsl(152, 30%, 55%);
+  --c6: hsl(180, 30%, 52%);
+  --c7: hsl(213, 30%, 62%);
+  --c8: hsl(244, 30%, 70%);
+  --c9: hsl(339, 30%, 65%);
+  --c10: hsl(39, 30%, 65%);
   --c11: hsl(247, 30%, 60%);
 }
 
@@ -2595,24 +2616,44 @@ html[data-hc] :focus-visible {
 html[data-hc] .hd-swatch.dark-mode .hd-row {
   background: rgba(255, 255, 255, 0.08);
 }
+
 html[data-hc] .hd-swatch.dark-mode .hd-row:nth-child(even) {
   background: rgba(255, 255, 255, 0.13);
 }
 
 /* Light-mode swatch text */
-html[data-hc] .hd-swatch.light-mode .hd-hex  { color: #1a1a1a; }
-html[data-hc] .hd-swatch.light-mode .hd-hsl  { color: #333333; }
-html[data-hc] .hd-swatch.light-mode .hd-row-label { color: #1a1a1a; }
+html[data-hc] .hd-swatch.light-mode .hd-hex {
+  color: #1a1a1a;
+}
+
+html[data-hc] .hd-swatch.light-mode .hd-hsl {
+  color: #333333;
+}
+
+html[data-hc] .hd-swatch.light-mode .hd-row-label {
+  color: #1a1a1a;
+}
 
 /* Token hex color */
-html[data-hc] .token-hex { color: hsl(213, 100%, 76%); }
+html[data-hc] .token-hex {
+  color: hsl(213, 100%, 76%);
+}
 
 /* Badge pass/fail */
-html[data-hc] .badge-pill.pass { background: rgba(11, 232, 129, 0.22); color: #0be881; }
-html[data-hc] .badge-pill.fail { background: rgba(255, 107, 107, 0.22); color: #ff6b6b; }
+html[data-hc] .badge-pill.pass {
+  background: rgba(11, 232, 129, 0.22);
+  color: #0be881;
+}
+
+html[data-hc] .badge-pill.fail {
+  background: rgba(255, 107, 107, 0.22);
+  color: #ff6b6b;
+}
 
 /* Step icons — raise opacity */
-html[data-hc] .step .feat-icon { color: rgba(255, 255, 255, 0.85); }
+html[data-hc] .step .feat-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
 
 /* Feat card top-line */
 html[data-hc] .feat-card::before {
@@ -2620,14 +2661,23 @@ html[data-hc] .feat-card::before {
 }
 
 /* Safe area cap */
-html[data-hc] .safe-area-cap { background: hsl(240, 8%, 2%); }
+html[data-hc] .safe-area-cap {
+  background: hsl(240, 8%, 2%);
+}
 
 /* HC label in nav */
-html[data-hc] .nav-hc-label { color: var(--accent); }
-html[data-hc] .nav-toggle-track { border-color: var(--accent); }
+html[data-hc] .nav-hc-label {
+  color: var(--accent);
+}
+
+html[data-hc] .nav-toggle-track {
+  border-color: var(--accent);
+}
 
 /* Signup input placeholder */
-html[data-hc] .signup-input::placeholder { color: var(--text-secondary); }
+html[data-hc] .signup-input::placeholder {
+  color: var(--text-secondary);
+}
 
 /* Suppress any looping box-shadow pulse animations in HC mode
    (e.g. claude-pulse injected by easter-egg.js) */
@@ -2672,6 +2722,7 @@ html {
    transitions, including carousel auto-advance (handled in JS).
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
