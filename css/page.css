@@ -40,8 +40,54 @@
   --c11: hsl(247, 74%, 63%);
 }
 
-html {
-  scroll-behavior: smooth;
+/* MARK: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 9999;
+  background: var(--accent);
+  color: #0a0a0b;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* MARK: Accent text span (replaces decorative <em>) */
+.accent-text {
+  color: var(--accent);
+}
+
+/* MARK: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
   overflow-x: hidden;
   background: var(--bg);
 }
@@ -89,7 +135,7 @@ body::before {
   background-repeat: repeat;
   background-size: 256px;
   pointer-events: none;
-  z-index: 50;
+  z-index: -1;
   opacity: 0.6;
 }
 
@@ -199,7 +245,7 @@ nav {
   padding: 10px 16px;
   border-radius: 4px;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .nav-cta:hover {
@@ -534,7 +580,7 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .hd-seg-btn.active {
@@ -666,13 +712,15 @@ nav {
   margin-bottom: 24px;
 }
 
-.hero-title em {
+.hero-title em,
+.hero-title .accent-text {
   font-style: normal;
   color: var(--accent);
   display: block;
 }
 
-em {
+em,
+.accent-text {
   font-style: normal;
   color: var(--accent);
 }
@@ -706,7 +754,7 @@ em {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: all 0.25s;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
   border: none;
   cursor: pointer;
 }
@@ -1302,7 +1350,7 @@ em {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, color 0.2s, opacity 0.2s;
   flex-shrink: 0;
 }
 
@@ -1326,7 +1374,7 @@ em {
   border: none;
   cursor: pointer;
   padding: 0;
-  transition: all 0.25s;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 
 .carousel-dot.active {
@@ -1635,7 +1683,7 @@ em {
   background: none;
   border: none;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .pg-seg-btn.active {
@@ -1890,7 +1938,7 @@ em {
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 
 .audience-dot.active {
@@ -2005,7 +2053,7 @@ em {
   padding: 18px 32px;
   border-radius: 8px;
   text-decoration: none;
-  transition: all 0.25s;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
   text-align: center;
 }
 
@@ -2204,6 +2252,8 @@ footer {
 
 .color-band-seg {
   flex: 1;
+  /* Never transition colors — prevents simultaneous multi-color flash on theme changes */
+  transition: none;
 }
 
 /* MARK: Responsive */
@@ -2339,159 +2389,14 @@ footer {
   }
 }
 
-/* HC toggle label */
-.nav-hc-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  user-select: none;
-  margin-right: 2px;
-}
-
-/* MARK: High Contrast Mode */
-/* Activated via data-hc attribute on <html>. Overrides CSS custom properties
-   so all color references cascade automatically. Targets APCA thresholds:
-   Lc 90 (preferred) · Lc 75 (body) · Lc 60 (fluent/UI) · Lc 45 (large text).
-   All text-on-dark combinations verified at ≥ WCAG AA (4.5:1 normal, 3:1 large). */
-
-html[data-hc] {
-  /* Backgrounds — deepen slightly so elevated surfaces read with more separation */
-  --bg: hsl(240, 8%, 2%);
-  --bg-card: hsl(240, 8%, 5%);
-  --bg-elevated: hsl(240, 8%, 8%);
-
-  /* Borders — significantly more visible */
-  --border: hsla(0, 0%, 100%, 0.22);
-  --border-bright: hsla(0, 0%, 100%, 0.44);
-
-  /* Primary text: pure white  → Lc ~106 / 19.6:1 WCAG */
-  --text-primary: #ffffff;
-
-  /* Secondary text: raised from 58% → 80% lightness → Lc ~78 / ~10:1 WCAG
-     Used for UI labels, panel text — meets Lc 75 body threshold */
-  --text-secondary: hsl(245, 10%, 80%);
-
-  /* Secondary-AA: raised from 72% → 91% lightness → Lc ~93 / ~14:1 WCAG
-     Used for sub-headings, body copy — meets Lc 90 preferred threshold */
-  --text-secondary-aa: hsl(245, 8%, 91%);
-
-  /* Dim text: raised from 45% → 68% lightness → Lc ~62 / ~7:1 WCAG
-     Used for decorative / tertiary labels — meets Lc 60 fluent threshold */
-  --text-dim: hsl(245, 10%, 68%);
-
-  /* Link color: boosted to Lc 73 / 5.9:1 WCAG — passes AA for all text sizes */
-  --text-link: hsl(74, 100%, 74%);
-
-  /* Accent: slightly brighter for better pop against elevated surfaces */
-  --accent: hsl(74, 100%, 70%);
-  --accent-dim: hsla(74, 100%, 70%, 0.22);
-  --accent-glow: hsla(74, 100%, 70%, 0.4);
-}
-
-/* Focus ring — enhanced for HC mode */
-html[data-hc] :focus-visible {
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
-}
-
-/* Hardcoded light-mode swatch colors — improve contrast for the demo widget */
-html[data-hc] .hd-swatch.light-mode .hd-hex {
-  color: #1a1a1a;
-}
-
-html[data-hc] .hd-swatch.light-mode .hd-hsl {
-  color: #333333;
-}
-
-html[data-hc] .hd-swatch.light-mode .hd-row-label {
-  color: #1a1a1a;
-}
-
-/* Dark-mode swatch rows in HC */
-html[data-hc] .hd-swatch.dark-mode .hd-row {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-html[data-hc] .hd-swatch.dark-mode .hd-row:nth-child(even) {
-  background: rgba(255, 255, 255, 0.13);
-}
-
-/* Token hex color — boosted from #54a0ff for better contrast in HC */
-html[data-hc] .token-hex {
-  color: hsl(213, 100%, 76%);
-}
-
-/* A11y demo row hover in HC */
-html[data-hc] .a11y-row:hover {
-  background: hsl(240, 8%, 16%);
-  border-color: var(--border-bright);
-}
-
-/* Badge pass/fail — raise visibility in HC */
-html[data-hc] .badge-pill.pass {
-  background: rgba(11, 232, 129, 0.22);
-  color: #0be881;
-}
-
-html[data-hc] .badge-pill.fail {
-  background: rgba(255, 107, 107, 0.22);
-  color: #ff6b6b;
-}
-
-/* Steps icon color — raise from 0.6 to 1 opacity in HC */
-html[data-hc] .step .feat-icon {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-/* Feat card top-line shine — more visible in HC */
-html[data-hc] .feat-card::before {
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
-}
-
-/* Safe area cap — match new bg */
-html[data-hc] .safe-area-cap {
-  background: hsl(240, 8%, 2%);
-}
-
-/* Nav HC active state — show a ring around the toggle for orientation */
-html[data-hc] .nav-hc-label {
-  color: var(--accent);
-}
-
-html[data-hc] .nav-toggle-track {
-  border-color: var(--accent);
-}
-
-/* Audience card (mobile) — thicker border in HC */
-html[data-hc] .audience-card {
-  border-color: var(--border-bright);
-}
-
-/* Price card */
-html[data-hc] .price-card {
-  border-color: var(--border-bright);
-}
-
-/* Signup input placeholder — raise from dim to secondary in HC */
-html[data-hc] .signup-input::placeholder {
-  color: var(--text-secondary);
-}
-
-/* Smooth theme transition */
-html {
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-
+/* MARK: Beta Badge */
 .nav-beta {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   /*color: var(--accent);*/
-  color: hsl(from var(--accent) h s 30);
+  color: hsl(from var(--accent) h s 36);
   background: var(--accent-dim);
   padding: 3px 6px 2px 6px;
   border-radius: 4px;
@@ -2521,7 +2426,7 @@ html {
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: all 0.25s;
+  transition: background 0.25s, width 0.25s, border-radius 0.25s, box-shadow 0.25s;
 }
 
 .steps-dot.active {
@@ -2632,5 +2537,157 @@ html {
 
   .audience-dots {
     display: flex;
+  }
+}
+/* ============================================================
+   MARK: High Contrast Mode
+   Activated via data-hc on <html> by the nav HC toggle.
+   Overrides CSS custom properties so all var() references
+   cascade automatically. Verified against APCA thresholds:
+   Lc 90 preferred · Lc 75 body · Lc 60 fluent · Lc 45 large.
+   All WCAG AA minimums met (4.5:1 normal, 3:1 large text).
+   ============================================================ */
+
+html[data-hc] {
+  /* Backgrounds */
+  --bg: hsl(240, 8%, 2%);
+  --bg-card: hsl(240, 8%, 5%);
+  --bg-elevated: hsl(240, 8%, 8%);
+
+  /* Borders — significantly more visible */
+  --border: hsla(0, 0%, 100%, 0.22);
+  --border-bright: hsla(0, 0%, 100%, 0.44);
+
+  /* Text — all raised to meet APCA thresholds */
+  --text-primary: #ffffff;                    /* Lc ~106 / 19.6:1 */
+  --text-secondary: hsl(245, 10%, 80%);       /* Lc ~78  / ~10:1  */
+  --text-secondary-aa: hsl(245, 8%, 91%);     /* Lc ~93  / ~14:1  */
+  --text-dim: hsl(245, 10%, 68%);             /* Lc ~62  / ~7:1   */
+  --text-link: hsl(74, 100%, 74%);            /* Lc ~73  / 5.9:1  */
+
+  /* Accent */
+  --accent: hsl(74, 100%, 70%);
+  --accent-dim: hsla(74, 100%, 70%, 0.22);
+  --accent-glow: hsla(74, 100%, 70%, 0.4);
+
+  /* Mute the decorative palette — desaturated so color-band
+     and step accents don't flash vivid hues in HC mode */
+  --c1:  hsl(0,   30%, 65%);
+  --c2:  hsl(29,  30%, 62%);
+  --c3:  hsl(48,  30%, 60%);
+  --c4:  hsl(74,  30%, 62%);
+  --c5:  hsl(152, 30%, 55%);
+  --c6:  hsl(180, 30%, 52%);
+  --c7:  hsl(213, 30%, 62%);
+  --c8:  hsl(244, 30%, 70%);
+  --c9:  hsl(339, 30%, 65%);
+  --c10: hsl(39,  30%, 65%);
+  --c11: hsl(247, 30%, 60%);
+}
+
+/* Focus ring — enhanced for HC mode */
+html[data-hc] :focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Dark-mode swatch rows */
+html[data-hc] .hd-swatch.dark-mode .hd-row {
+  background: rgba(255, 255, 255, 0.08);
+}
+html[data-hc] .hd-swatch.dark-mode .hd-row:nth-child(even) {
+  background: rgba(255, 255, 255, 0.13);
+}
+
+/* Light-mode swatch text */
+html[data-hc] .hd-swatch.light-mode .hd-hex  { color: #1a1a1a; }
+html[data-hc] .hd-swatch.light-mode .hd-hsl  { color: #333333; }
+html[data-hc] .hd-swatch.light-mode .hd-row-label { color: #1a1a1a; }
+
+/* Token hex color */
+html[data-hc] .token-hex { color: hsl(213, 100%, 76%); }
+
+/* Badge pass/fail */
+html[data-hc] .badge-pill.pass { background: rgba(11, 232, 129, 0.22); color: #0be881; }
+html[data-hc] .badge-pill.fail { background: rgba(255, 107, 107, 0.22); color: #ff6b6b; }
+
+/* Step icons — raise opacity */
+html[data-hc] .step .feat-icon { color: rgba(255, 255, 255, 0.85); }
+
+/* Feat card top-line */
+html[data-hc] .feat-card::before {
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.22), transparent);
+}
+
+/* Safe area cap */
+html[data-hc] .safe-area-cap { background: hsl(240, 8%, 2%); }
+
+/* HC label in nav */
+html[data-hc] .nav-hc-label { color: var(--accent); }
+html[data-hc] .nav-toggle-track { border-color: var(--accent); }
+
+/* Signup input placeholder */
+html[data-hc] .signup-input::placeholder { color: var(--text-secondary); }
+
+/* Suppress any looping box-shadow pulse animations in HC mode
+   (e.g. claude-pulse injected by easter-egg.js) */
+html[data-hc] *,
+html[data-hc] *::before,
+html[data-hc] *::after {
+  animation: none !important;
+}
+
+/* ============================================================
+   MARK: Nav HC Label
+   ============================================================ */
+.nav-hc-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  user-select: none;
+  margin-right: 2px;
+}
+
+/* ============================================================
+   MARK: Safe Global Crossfade
+   Scoped to specific properties — never 'all' — so theme
+   toggles crossfade gently without triggering multi-color
+   simultaneous flashes across the page.
+   ============================================================ */
+html {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Color band segments must NEVER transition — 11 vivid colors
+   animating simultaneously is a photosensitivity risk */
+.color-band-seg {
+  transition: none !important;
+}
+
+/* ============================================================
+   MARK: Reduced Motion
+   Respects user OS preference. Stops all animations and
+   transitions, including carousel auto-advance (handled in JS).
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+    transition: none;
   }
 }
