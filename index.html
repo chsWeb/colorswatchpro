@@ -84,7 +84,6 @@
         </label>
         <span class="nav-logo">
           Color Swatch Pro
-          <span class="nav-beta">Alpha</span>
         </span>
         <button id="navHighContrast" class="nav-hc-btn" aria-label="Toggle high contrast mode" aria-pressed="false">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
@@ -125,13 +124,13 @@
           <div class="hero-actions">
             <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
               rel="noopener noreferrer" class="btn-primary">
-              Download on Figma Community
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              Download on Figma Community · $29
+              <!--<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                   stroke-linejoin="round" />
-              </svg>
+              </svg>-->
             </a>
-            <div class="price-tag">$29 one-time</div>
+            <div class="price-tag"><a href="#walkthrough">View Demo</a></div>
           </div>
           <div class="hero-stats">
             <div class="stat-item">
@@ -389,7 +388,21 @@
               <div class="step-accent"></div>
             </div>
           </div>
-          <div class="steps-dots" id="stepsDots"></div>
+          <div class="steps-controls">
+            <button class="carousel-arrow" id="stepsPrev" aria-label="Previous step">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+                <path d="M9 2L4 7l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="steps-dots" id="stepsDots"></div>
+            <button class="carousel-arrow" id="stepsNext" aria-label="Next step">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true" focusable="false">
+                <path d="M5 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -1195,6 +1208,12 @@
             d.classList.toggle('active', i === current);
           });
         }
+
+        // Arrow buttons
+        const prevBtn = document.getElementById('stepsPrev');
+        const nextBtn = document.getElementById('stepsNext');
+        if (prevBtn) prevBtn.addEventListener('click', () => goTo(current - 1));
+        if (nextBtn) nextBtn.addEventListener('click', () => goTo(current + 1));
 
         // Touch swipe support
         grid.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });

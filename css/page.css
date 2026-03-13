@@ -279,9 +279,10 @@ nav {
 }
 
 .nav-cta:hover {
-  background: #e8ff6a;
+  background: hsl(74, 100%, 56%);
+  color: #0a0a0b;
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px var(--accent-glow);
+  box-shadow: 0 4px 8px hsla(74, 100%, 64%, 0.12);
 }
 
 /* MARK: Hero */
@@ -299,7 +300,7 @@ nav {
   position: relative;
 }
 
-.hero::after {
+/*.hero::after {
   content: '';
   position: absolute;
   top: -200px;
@@ -308,7 +309,7 @@ nav {
   height: 600px;
   background: radial-gradient(circle, rgba(212, 255, 71, 0.05) 0%, transparent 70%);
   pointer-events: none;
-}
+}*/
 
 .hero-content {
   position: relative;
@@ -791,8 +792,9 @@ em,
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--accent-glow);
-  background: #e8ff6a;
+  box-shadow: 0 4px 12px hsla(74, 100%, 64%, 0.12);
+  background: hsl(74, 100%, 56%);
+  color: #0a0a0b;
 }
 
 .price-tag {
@@ -2088,9 +2090,10 @@ em,
 }
 
 .price-cta:hover {
-  background: #e8ff6a;
+  background: hsl(74, 100%, 56%);
+  color: #0a0a0b;
   transform: translateY(-2px);
-  box-shadow: 0 10px 40px var(--accent-glow);
+  box-shadow: 0 4px 12px hsla(74, 100%, 64%, 0.12);
 }
 
 .price-sub {
@@ -2219,8 +2222,9 @@ em,
 }
 
 .signup-btn:hover {
-  background: #e8ff6a;
+  background: hsl(74, 100%, 56%);
   transform: translateY(-1px);
+  box-shadow: 0 4px 8px hsla(74, 100%, 64%, 0.12);
 }
 
 .signup-btn:disabled {
@@ -2291,6 +2295,18 @@ footer {
   nav {
     padding: 16px 24px;
     padding-top: max(16px, env(safe-area-inset-top));
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .nav-logo-wrap {
+    flex: 1;
+  }
+
+  .nav-hc-btn {
+    margin-left: auto;
   }
 
   .hero {
@@ -2441,11 +2457,18 @@ footer {
   position: relative;
 }
 
-.steps-dots {
+.steps-controls {
   display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.steps-dots {
+  display: flex;
   justify-content: center;
   gap: 6px;
-  margin-top: 16px;
 }
 
 .steps-dot {
@@ -2537,7 +2560,7 @@ footer {
     border: none;
   }
 
-  .steps-dots {
+  .steps-controls {
     display: flex;
   }
 
