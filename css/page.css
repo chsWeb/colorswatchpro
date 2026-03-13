@@ -42,7 +42,7 @@
 
 /* MARK: Skip Link */
 .skip-link {
-  position: absolute;
+  position: fixed;
   top: -100%;
   left: 16px;
   z-index: 9999;
@@ -59,6 +59,11 @@
 
 .skip-link:focus {
   top: 0;
+}
+
+#main-content:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 /* MARK: Accent text span (replaces decorative <em>) */
@@ -88,9 +93,9 @@
   }
 }
 
-
-overflow-x: hidden;
-background: var(--bg);
+body {
+  overflow-x: clip;
+  background: var(--bg);
 }
 
 a {

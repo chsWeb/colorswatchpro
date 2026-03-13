@@ -92,18 +92,22 @@
     </nav>
 
     <!-- HERO -->
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <section class="hero" aria-label="Hero">
         <div class="hero-content">
           <div class="hero-badge">
-            <span aria-hidden="true">✦</span> Figma Component + Claude Automation
+            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <path
+                d="M8 1H4.5C2.567 1 1 2.567 1 4.5C1 6.433 2.567 8 4.5 8M8 1V8M8 1H11.5C13.433 1 15 2.567 15 4.5C15 6.433 13.433 8 11.5 8M4.5 8H8M4.5 8C2.567 8 1 9.567 1 11.5C1 13.433 2.567 15 4.5 15M8 8V15M8 8H11.5M11.5 8C13.433 8 15 9.567 15 11.5C15 13.433 13.433 15 11.5 15C9.567 15 8 13.433 8 11.5C8 9.567 9.567 8 11.5 8ZM8 15H4.5M8 15V18.5C8 20.433 6.433 22 4.5 22C2.567 22 1 20.433 1 18.5C1 16.567 2.567 15 4.5 15"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg> Color Swatch Pro for Figma
           </div>
           <h1 class="hero-title">
             Color Documentation,<br>
             <span class="accent-text">Claudemated!</span>
           </h1>
           <p class="hero-sub">
-            Build complete, accessible, token-ready color palettes in minutes — not hours. Color Swatch Pro pairs with
+            Build complete, accessible, token-ready color palettes in minutes. Color Swatch Pro pairs with
             Claude and the Figma MCP workflow to turn a prompt into a fully documented design system.
           </p>
           <div class="hero-actions">
@@ -150,7 +154,8 @@
                         width="8" height="8" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                         <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                           stroke-linejoin="round" />
-                      </svg></span><span class="hd-row-label">Large text:</span><span class="hd-row-val">45</span></div>
+                      </svg></span><span class="hd-row-label">Large text:</span><span class="hd-row-val">45</span>
+                  </div>
                   <div class="hd-row"><span class="hd-row-icon pass" id="hdIconFluent" role="img" aria-label="Pass"><svg
                         width="8" height="8" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                         <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -161,7 +166,8 @@
                         width="8" height="8" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                         <path d="M1.5 5.5L4 8L8.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                           stroke-linejoin="round" />
-                      </svg></span><span class="hd-row-label">Body text:</span><span class="hd-row-val">75</span></div>
+                      </svg></span><span class="hd-row-label">Body text:</span><span class="hd-row-val">75</span>
+                  </div>
                   <div class="hd-row"><span class="hd-row-icon fail" id="hdIconPreferred" role="img"
                       aria-label="Fail">✗</span><span class="hd-row-label">Preferred:</span><span
                       class="hd-row-val">90</span></div>
@@ -321,8 +327,7 @@
                 </svg></div>
               <h3 class="step-title">Calculate Contrast</h3>
               <p class="step-desc">WCAG and APCA contrast values are computed and written into each swatch
-                automatically.
-                No manual testing.</p>
+                automatically. No manual testing.</p>
               <div class="step-accent"></div>
             </div>
             <div class="step"
