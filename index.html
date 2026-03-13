@@ -412,12 +412,15 @@
         <h2 class="section-title">Watch the full walkthrough</h2>
         <p class="section-sub">See how Claude and Color Swatch Pro work together to build a complete, accessible color
           system in minutes.</p>
-        <div style="position:relative;padding-top:56.25%;" id="walkthrough"><iframe
-            title="Color Swatch Pro walkthrough video"
-            src="https://player.mediadelivery.net/embed/349534/c23907bc-ff99-4578-98df-11960ce8ce51?autoplay=false&loop=false&muted=false&preload=true&responsive=true"
-            loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;"
-            allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;"
-            allowfullscreen="true"></iframe>
+        <div class="video-wrapper" id="walkthrough">
+          <video
+            id="walkthrough-video"
+            controls
+            preload="none"
+            poster="images/1920p-tn-colorSwarchProA.png"
+            aria-label="Color Swatch Pro walkthrough video">
+            Your browser does not support HTML5 video.
+          </video>
         </div>
       </section>
 
@@ -1343,6 +1346,23 @@
         });
       }
 
+    </script>
+
+    <!-- HLS video player -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+    <script>
+      (function () {
+        const video = document.getElementById('walkthrough-video');
+        const src = 'https://vz-53c8527f-47f.b-cdn.net/c23907bc-ff99-4578-98df-11960ce8ce51/playlist.m3u8';
+        if (Hls.isSupported()) {
+          const hls = new Hls({ startLevel: -1 });
+          hls.loadSource(src);
+          hls.attachMedia(video);
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          // Safari — native HLS support
+          video.src = src;
+        }
+      })();
     </script>
   </body>
 

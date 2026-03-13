@@ -2413,7 +2413,7 @@ footer {
   z-index: 1;
 }
 
-.video-wrapper iframe {
+.video-wrapper video {
   position: absolute;
   inset: 0;
   width: 100%;
