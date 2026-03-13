@@ -78,17 +78,28 @@
     <!-- NAV -->
     <nav>
       <div class="nav-logo-wrap">
-        <label class="nav-toggle" aria-label="Toggle high contrast mode" title="Toggle high contrast mode">
-          <input type="checkbox" id="navHighContrast" />
+        <label class="nav-toggle" aria-label="Toggle accent logo" title="Toggle accent logo">
+          <input type="checkbox" id="navLogoToggle" />
           <span class="nav-toggle-track"></span>
         </label>
-        <a href="#" class="nav-logo">
+        <span class="nav-logo">
           Color Swatch Pro
           <span class="nav-beta">Alpha</span>
-        </a>
+        </span>
       </div>
-      <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
-        rel="noopener noreferrer" class="nav-cta">Available in Figma <span class="hide-a11y">Community</span> · $29</a>
+      <div class="nav-actions">
+        <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
+          rel="noopener noreferrer" class="nav-cta">Available in Figma <span class="hide-a11y">Community</span> ·
+          $29</a>
+        <button id="navHighContrast" class="nav-hc-btn" aria-label="Toggle high contrast mode" aria-pressed="false">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <path
+              d="M12 2v2M12 20v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M2 12h2M20 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
     </nav>
 
     <!-- HERO -->
@@ -96,7 +107,8 @@
       <section class="hero" aria-label="Hero">
         <div class="hero-content">
           <div class="hero-badge">
-            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true" focusable="false">
               <path
                 d="M8 1H4.5C2.567 1 1 2.567 1 4.5C1 6.433 2.567 8 4.5 8M8 1V8M8 1H11.5C13.433 1 15 2.567 15 4.5C15 6.433 13.433 8 11.5 8M4.5 8H8M4.5 8C2.567 8 1 9.567 1 11.5C1 13.433 2.567 15 4.5 15M8 8V15M8 8H11.5M11.5 8C13.433 8 15 9.567 15 11.5C15 13.433 13.433 15 11.5 15C9.567 15 8 13.433 8 11.5C8 9.567 9.567 8 11.5 8ZM8 15H4.5M8 15V18.5C8 20.433 6.433 22 4.5 22C2.567 22 1 20.433 1 18.5C1 16.567 2.567 15 4.5 15"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -1252,21 +1264,24 @@
 
       // ── HIGH CONTRAST TOGGLE ──
       (function () {
-        const checkbox = document.getElementById('navHighContrast');
+        const btn = document.getElementById('navHighContrast');
         const html = document.documentElement;
 
         // Restore saved preference
         if (localStorage.getItem('csp-hc') === '1') {
           html.setAttribute('data-hc', '');
-          checkbox.checked = true;
+          btn.setAttribute('aria-pressed', 'true');
         }
 
-        checkbox.addEventListener('change', function () {
-          if (this.checked) {
+        btn.addEventListener('click', function () {
+          const isOn = this.getAttribute('aria-pressed') === 'true';
+          if (!isOn) {
             html.setAttribute('data-hc', '');
+            this.setAttribute('aria-pressed', 'true');
             localStorage.setItem('csp-hc', '1');
           } else {
             html.removeAttribute('data-hc');
+            this.setAttribute('aria-pressed', 'false');
             localStorage.setItem('csp-hc', '0');
           }
         });
