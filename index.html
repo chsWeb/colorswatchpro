@@ -124,7 +124,7 @@
           <div class="hero-actions">
             <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
               rel="noopener noreferrer" class="btn-primary">
-              Download on Figma Community · $29
+              Download Color Swatch Pro · $29
               <!--<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -414,10 +414,43 @@
           system in minutes.</p>
         <div class="video-wrapper" id="walkthrough">
           <video id="walkthrough-video" controls preload="none" poster="images/1920p-tn-colorSwarchProA.png"
-            aria-label="Color Swatch Pro walkthrough video">
+            aria-label="Color Swatch Pro walkthrough video" crossorigin="anonymous">
+            <track kind="subtitles"
+              src="https://vz-53c8527f-47f.b-cdn.net/c23907bc-ff99-4578-98df-11960ce8ce51/captions/en.vtt" srclang="en"
+              label="English" default>
+            <track kind="subtitles"
+              src="https://vz-53c8527f-47f.b-cdn.net/c23907bc-ff99-4578-98df-11960ce8ce51/captions/es.vtt" srclang="es"
+              label="Español">
+            <track kind="chapters" src="chapters.vtt" srclang="en">
             Your browser does not support HTML5 video.
           </video>
         </div>
+        <div class="video-chapters" role="navigation" aria-label="Video chapters">
+          <button class="video-chapter" data-time="249" aria-label="Jump to PROMPT 1: Create Colors at 4:09">
+            <span class="chapter-time">4:09</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 1:</span> Create Colors</span>
+          </button>
+          <button class="video-chapter" data-time="330" aria-label="Jump to PROMPT 2: Start Color Swatch Pro at 5:30">
+            <span class="chapter-time">5:30</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 2:</span> Start Color Swatch Pro</span>
+          </button>
+          <button class="video-chapter" data-time="476" aria-label="Jump to PROMPT 3: Accessibility at 7:56">
+            <span class="chapter-time">7:56</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 3:</span> Accessibility</span>
+          </button>
+          <button class="video-chapter" data-time="720" aria-label="Jump to PROMPT 4: Color accessibility at 12:00">
+            <span class="chapter-time">12:00</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 4:</span> Color accessibility</span>
+          </button>
+          <button class="video-chapter" data-time="900" aria-label="Jump to PROMPT 5: Organize at 15:00">
+            <span class="chapter-time">15:00</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 5:</span> Organize</span>
+          </button>
+          <button class="video-chapter" data-time="1056" aria-label="Jump to PROMPT 6: Update Variable Names at 17:36">
+            <span class="chapter-time">17:36</span>
+            <span class="chapter-label"><span class="chapter-prompt">PROMPT 6:</span> Update Variable Names</span>
+          </button>
+          </nav>
       </section>
 
       <!-- FEATURES -->
@@ -856,8 +889,7 @@
           </ul>
           <a href="https://www.figma.com/community/file/1609064865555421103/color-swatch-pro" target="_blank"
             rel="noopener noreferrer" class="price-cta">
-            Download on Figma Community →
-          </a>
+            Download at Figma</a>
           <p class="price-sub">Available in the Figma Community · Instant access after purchase</p>
         </div>
       </section>
@@ -1358,6 +1390,31 @@
           // Safari — native HLS support
           video.src = src;
         }
+      })();
+
+      // Video chapters
+      (function () {
+        const video = document.getElementById('walkthrough-video');
+        const buttons = document.querySelectorAll('.video-chapter');
+        if (!video || !buttons.length) return;
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => {
+            video.currentTime = parseFloat(btn.dataset.time);
+            video.play();
+          });
+        });
+
+        function updateActive() {
+          const t = video.currentTime;
+          let active = null;
+          buttons.forEach(btn => {
+            if (t >= parseFloat(btn.dataset.time)) active = btn;
+          });
+          buttons.forEach(btn => btn.classList.toggle('active', btn === active));
+        }
+
+        video.addEventListener('timeupdate', updateActive);
       })();
     </script>
   </body>

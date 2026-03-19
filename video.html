@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Player</title>
+  <link rel="stylesheet" href="css/video.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+</head>
+<body>
+
+<div id="player-wrap">
+  <div id="video-container">
+    <video id="player" controls></video>
+  </div>
+
+  <div id="video-meta">
+    <h1 id="video-title"></h1>
+    <span id="video-duration"></span>
+  </div>
+
+  <div id="error-msg"></div>
+  <div id="chapters-wrap" hidden>
+    <div id="chapters-label">Chapters</div>
+    <div id="chapters-bar"></div>
+  </div>
+  <div id="captions-wrap" hidden>
+    <span id="captions-label">Captions</span>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// CONFIG
+// Edit these values to configure the player.
+// ═══════════════════════════════════════════════════════════════════
+const CONFIG = {
+
+  // Your Cloudflare Worker URL (no trailing slash)
+  workerUrl: 'https://your-worker.workers.dev',
+
+  // Bunny.net library and video IDs
+  libraryId: '349534',
+  videoId:   'c23907bc-ff99-4578-98df-11960ce8ce51',
+
+  // Bunny.net CDN pull zone hostname
+  cdnHostname: 'vz-53c8527f-47f.b-cdn.net',
+
+  features: {
+
+    // Show the video title fetched from the API
+    showTitle: true,
+
+    // Show total duration next to the title
+    showDuration: true,
+
+    // Chapters / Moments — clickable navigation below the video
+    chapters: true,
+
+    // Closed captions — adds a CC language selector below the video
+    captions: true,
+
+    // Default caption language ('en', 'es', etc.) or null for off by default
+    defaultCaption: 'en',
+
+    // Autoplay on load (browsers may block unless muted)
+    autoplay: false,
+
+    // Loop the video when it ends
+    loop: false,
+
+    // Start muted
+    muted: false,
+
+    // Preload strategy: 'none' | 'metadata' | 'auto'
+    preload: 'none',
+
+  },
+};
+// ═══════════════════════════════════════════════════════════════════
+
+
+// ── Helpers ─────────────────────────────────────────────────────────
+
+function formatTime(s) {
+  const h   = Math.floor(s / 3600);
+  const m   = Math.floor((s % 3600) / 60);
+  const sec = String(Math.floor(s % 60)).padStart(2, '0');
+  return h > 0 ? `${h}:${String(m).padStart(2,'0')}:${sec}` : `${m}:${sec}`;
+}
+
+function showError(msg) {
+  const el = document.getElementById('error-msg');
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+
+// ── HLS init ────────────────────────────────────────────────────────
+
+function initHls(video) {
+  const src = `https://${CONFIG.cdnHostname}/${CONFIG.videoId}/playlist.m3u8`;
+  if (Hls.isSupported()) {
+    const hls = new Hls({ startLevel: -1 });
+    hls.loadSource(src);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.ERROR, (_, data) => {
+      if (data.fatal) showError('Video failed to load. Please try refreshing.');
+    });
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = src; // Safari native HLS
+  } else {
+    showError('Your browser does not support HLS video playback.');
+  }
+}
+
+
+// ── Build UI from API data ───────────────────────────────────────────
+
+function applyVideoConfig(video) {
+  video.autoplay = CONFIG.features.autoplay;
+  video.loop     = CONFIG.features.loop;
+  video.muted    = CONFIG.features.muted;
+  video.preload  = CONFIG.features.preload;
+}
+
+function buildTitle(data) {
+  if (!CONFIG.features.showTitle) return;
+  const el = document.getElementById('video-title');
+  el.textContent = data.title || '';
+}
+
+function buildDuration(data) {
+  if (!CONFIG.features.showDuration || !data.length) return;
+  document.getElementById('video-duration').textContent = formatTime(data.length);
+}
+
+function buildPoster(video, data) {
+  if (data.thumbnailFileName) {
+    video.poster = `https://${CONFIG.cdnHostname}/${CONFIG.videoId}/${data.thumbnailFileName}`;
+  }
+}
+
+function buildCaptions(video, data) {
+  if (!CONFIG.features.captions || !data.captions?.length) return;
+
+  const wrap = document.getElementById('captions-wrap');
+  wrap.hidden = false;
+
+  // Add track elements
+  data.captions.forEach(cap => {
+    const track = document.createElement('track');
+    track.kind    = 'subtitles';
+    track.src     = `https://${CONFIG.cdnHostname}/${CONFIG.videoId}/captions/${cap.srclang}.vtt`;
+    track.srclang = cap.srclang;
+    track.label   = cap.label;
+    video.appendChild(track);
+  });
+
+  // CC selector buttons
+  const offBtn = document.createElement('button');
+  offBtn.className = 'cc-btn off';
+  offBtn.textContent = 'Off';
+  offBtn.addEventListener('click', () => {
+    Array.from(video.textTracks).forEach(t => (t.mode = 'disabled'));
+    document.querySelectorAll('.cc-btn').forEach(b => b.classList.remove('active'));
+    offBtn.classList.add('active');
+  });
+  wrap.appendChild(offBtn);
+
+  data.captions.forEach(cap => {
+    const btn = document.createElement('button');
+    btn.className    = 'cc-btn';
+    btn.textContent  = cap.label;
+    btn.dataset.lang = cap.srclang;
+    btn.addEventListener('click', () => {
+      Array.from(video.textTracks).forEach(t => {
+        t.mode = t.language === cap.srclang ? 'showing' : 'disabled';
+      });
+      document.querySelectorAll('.cc-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+    wrap.appendChild(btn);
+  });
+
+  // Apply default
+  if (CONFIG.features.defaultCaption) {
+    const defaultBtn = wrap.querySelector(`[data-lang="${CONFIG.features.defaultCaption}"]`);
+    if (defaultBtn) {
+      // Tracks need a moment to load before mode can be set
+      video.addEventListener('loadedmetadata', () => {
+        Array.from(video.textTracks).forEach(t => {
+          t.mode = t.language === CONFIG.features.defaultCaption ? 'showing' : 'disabled';
+        });
+        defaultBtn.classList.add('active');
+      }, { once: true });
+    }
+  } else {
+    offBtn.classList.add('active');
+  }
+}
+
+function buildChapters(video, data) {
+  if (!CONFIG.features.chapters) return;
+
+  // Bunny returns moments (timestamps) and/or chapters (ranges) — use whichever is present
+  const items = data.moments?.length
+    ? data.moments.map(m => ({ label: m.label, time: m.timestamp }))
+    : data.chapters?.length
+    ? data.chapters.map(c => ({ label: c.title, time: c.start }))
+    : [];
+
+  if (!items.length) return;
+
+  const wrap = document.getElementById('chapters-wrap');
+  const bar  = document.getElementById('chapters-bar');
+  wrap.hidden = false;
+
+  items.forEach(item => {
+    const btn = document.createElement('button');
+    btn.className       = 'chapter-btn';
+    btn.dataset.time    = item.time;
+    btn.innerHTML = `<span class="c-time">${formatTime(item.time)}</span><span class="c-label">${item.label}</span>`;
+    btn.addEventListener('click', () => {
+      video.currentTime = item.time;
+      video.play();
+    });
+    bar.appendChild(btn);
+  });
+
+  // Active chapter tracking
+  video.addEventListener('timeupdate', () => {
+    const t       = video.currentTime;
+    const buttons = bar.querySelectorAll('.chapter-btn');
+    let active    = null;
+    buttons.forEach(b => { if (t >= parseFloat(b.dataset.time)) active = b; });
+    buttons.forEach(b => b.classList.toggle('active', b === active));
+  });
+}
+
+
+// ── Main ────────────────────────────────────────────────────────────
+
+async function init() {
+  const video = document.getElementById('player');
+  applyVideoConfig(video);
+  initHls(video);
+
+  try {
+    const res = await fetch(
+      `${CONFIG.workerUrl}/video/${CONFIG.libraryId}/${CONFIG.videoId}`
+    );
+    if (!res.ok) throw new Error(`Worker returned ${res.status}`);
+    const data = await res.json();
+
+    buildTitle(data);
+    buildDuration(data);
+    buildPoster(video, data);
+    buildCaptions(video, data);
+    buildChapters(video, data);
+
+  } catch (err) {
+    console.warn('Could not load video metadata:', err);
+    // Player still works — metadata features just won't render
+  }
+}
+
+init();
+</script>
+</body>
+</html>
