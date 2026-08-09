@@ -40,7 +40,10 @@
     <link rel="stylesheet" href="css/page.css">
     <style>
       /* FAQ + transcript — added for SEO/LLM indexing */
-      .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+      .faq-list{max-width:820px;margin:2.5rem auto 0;display:flex;flex-direction:column;gap:.75rem;
+        text-align:left}
+      .faq .section-label,.faq .section-title,.faq .section-sub{text-align:center}
+      .faq .section-sub{max-width:46rem;margin-left:auto;margin-right:auto}
       .faq-item{border:1px solid rgba(128,128,128,.25);border-radius:12px;overflow:hidden}
       .faq-q{cursor:pointer;list-style:none;padding:1rem 1.25rem;display:flex;align-items:center;
         justify-content:space-between;gap:1rem}
@@ -576,7 +579,7 @@
           <div class="transcript-body">
             <h3 class="transcript-h">Introduction <span class="transcript-ts">0:00</span></h3>
             <p>Color Swatch Pro is a professional grade design system color swatch component that you can use to document all of your colors in Figma. Up until this month, it would have taken hours to get Color Swatch Pro applied to all of your design system colors. But now with Claude and the Figma MCP server, we can automate the entire process in just a few minutes. And I&#x27;m going to walk you through how to build a great looking design system color palette documentation set of colors in just a few minutes.</p>
-            <p>So the first thing you need to do is head into the Figma community Look for Color Swatch Pro and purchase the file. It&#x27;s a $9 purchase, but what I&#x27;m about to show you in this video is going to save you hours of time. So you&#x27;ll already have ROI on your purchase by the end of this video. So once you download Color Swatch Pro, you&#x27;ll see inside the file, there is a Figblog.</p>
+            <p>So the first thing you need to do is head into the Figma community Look for Color Swatch Pro and purchase the file. It&#x27;s a $29 purchase, but what I&#x27;m about to show you in this video is going to save you hours of time. So you&#x27;ll already have ROI on your purchase by the end of this video. So once you download Color Swatch Pro, you&#x27;ll see inside the file, there is a Figblog.</p>
             <p>There&#x27;s a sample of the color palette that we&#x27;re going to create. and then there is the color component itself. I&#x27;ll make another video that covers all of the different options that you have available in this color palette, but to give you a sense of it, you can switch from WCAG to APCA, contrast ratings, And you can set in the component whether or not the color contrast is suitable for various text sizes</p>
             <p>or meets double or triple A standards. And you can also customize it to show and hide your colors in dark mode. And if you want to, or if you&#x27;re using design system or design tokens, you can also indicate the light mode and dark mode token. And all of that can be automated with Claude.</p>
             <p>So let&#x27;s just jump in and get started. Once you have Color Swatch Pro added to your Figma account, we&#x27;re going to create a new document and you can import Color Swatch Pro as a published design system component, or you can simply come in here and grab the component itself, paste it into your file. And then I&#x27;m just going to call this component and then I&#x27;m going to create a new page.</p>
@@ -1064,7 +1067,7 @@
       </section>
 
       <!-- FAQ -->
-      <section class="faq reveal" id="faq" aria-label="Frequently asked questions">
+      <section class="faq pricing reveal" id="faq" aria-label="Frequently asked questions">
         <div class="section-label">FAQ</div>
         <h2 class="section-title">Questions about Figma, Claude &amp; color</h2>
         <p class="section-sub">How the Figma MCP workflow, contrast models, and design tokens fit together.</p>
