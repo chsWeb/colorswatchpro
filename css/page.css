@@ -741,6 +741,7 @@ nav {
   line-height: 1.0;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
+  text-wrap: balance;
 }
 
 .hero-title em,
