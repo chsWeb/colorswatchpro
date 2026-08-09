@@ -6,16 +6,18 @@
     <meta name="author" content="Jono Young">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="theme-color" content="#0a0a0b" />
-    <link rel="icon" href="images/favicon.png" type="image/png">
-    <title>Color Swatch Pro for Figma</title>
+    <link rel="icon" href="https://colorswatchpro.com/images/favicon.png" type="image/png">
+    <link rel="canonical" href="https://colorswatchpro.com/" />
+    <title>Figma Color Palette Generator — Accessible Color System with Claude + Figma MCP</title>
     <meta name="description"
-      content="Create Color Palettes for Figma in 6 Prompts. Built for Figma, powered by Claude AI." />
+      content="Build a fully documented Figma color system in 6 prompts. WCAG + APCA contrast, 22 color primitives, light and dark mode tokens. Powered by Claude and the Figma MCP server. $9." />
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://colorswatchpro.com" />
-    <meta property="og:title" content="Create Color Palettes for Figma in 6 Prompts. Built for Figma, powered by Claude AI." />
+    <meta property="og:title"
+      content="Figma Color Palette Generator — Accessible Color System with Claude + Figma MCP" />
     <meta property="og:description"
-      content="Create Color Palettes for Figma in 6 Prompts. Built for Figma, powered by Claude AI." />
+      content="Build a fully documented Figma color system in 6 prompts. WCAG + APCA contrast, 22 color primitives, light and dark mode tokens. Powered by Claude and the Figma MCP server. $9." />
     <meta property="og:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -24,9 +26,10 @@
     <!-- Twitter / X Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://colorswatchpro.com" />
-    <meta name="twitter:title" content="Create Color Palettes for Figma in 6 Prompts. Built for Figma, powered by Claude AI." />
+    <meta name="twitter:title"
+      content="Figma Color Palette Generator — Accessible Color System with Claude + Figma MCP" />
     <meta name="twitter:description"
-      content="Create Color Palettes for Figma in 6 Prompts. Built for Figma, powered by Claude AI." />
+      content="Build a fully documented Figma color system in 6 prompts. WCAG + APCA contrast, 22 color primitives, light and dark mode tokens. Powered by Claude and the Figma MCP server. $9." />
     <meta name="twitter:image" content="https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png" />
     <!--Assets-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,7 +38,128 @@
       href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Gabarito:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet" />
     <link rel="stylesheet" href="css/page.css">
+    <style>
+      /* FAQ + transcript — added for SEO/LLM indexing */
+      .faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:.75rem}
+      .faq-item{border:1px solid rgba(128,128,128,.25);border-radius:12px;overflow:hidden}
+      .faq-q{cursor:pointer;list-style:none;padding:1rem 1.25rem;display:flex;align-items:center;
+        justify-content:space-between;gap:1rem}
+      .faq-q::-webkit-details-marker{display:none}
+      .faq-q h3{margin:0;font-size:1rem;font-weight:600;line-height:1.4}
+      .faq-q::after{content:"+";font-size:1.25rem;line-height:1;opacity:.6;flex:none}
+      .faq-item[open] .faq-q::after{content:"−"}
+      .faq-a{padding:0 1.25rem 1.25rem}
+      .faq-a p{margin:0;opacity:.8;line-height:1.65;font-size:.95rem}
+      .transcript{max-width:820px;margin:1.5rem auto 0;border:1px solid rgba(128,128,128,.25);
+        border-radius:12px;overflow:hidden}
+      .transcript-summary{cursor:pointer;padding:.9rem 1.25rem;font-size:.9rem;font-weight:600;list-style:none}
+      .transcript-summary::-webkit-details-marker{display:none}
+      .transcript-summary::before{content:"▸ ";opacity:.6}
+      .transcript[open] .transcript-summary::before{content:"▾ "}
+      .transcript-body{padding:0 1.25rem 1.25rem;max-height:28rem;overflow-y:auto;
+        font-size:.9rem;line-height:1.7;opacity:.8}
+      .transcript-body p{margin:0 0 .9rem}
+      .transcript-h{margin:1.6rem 0 .6rem;font-size:.95rem;font-weight:700;opacity:1;
+        display:flex;align-items:baseline;gap:.5rem}
+      .transcript-h:first-child{margin-top:.5rem}
+      .transcript-ts{font-family:"Fira Code",monospace;font-size:.75rem;font-weight:400;opacity:.55}
+      @media (prefers-reduced-motion:reduce){.faq-item,.transcript{transition:none}}
+    </style>
     <meta name="google-site-verification" content="QS_VpLV4usVr9duJaqPEdUQnxIh88rXhmn96mN_7pjA" />
+
+    <!-- Structured data: product -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Color Swatch Pro",
+      "applicationCategory": "DesignApplication",
+      "applicationSubCategory": "Figma File",
+      "operatingSystem": "Web, macOS, Windows",
+      "url": "https://colorswatchpro.com/",
+      "image": "https://colorswatchpro.com/images/1200x630-openGraph-colroSwatchPro.png",
+      "description": "A Figma component system that builds a fully documented, accessible color palette in six prompts using Claude and the Figma MCP server. Includes WCAG and APCA contrast models, 22 color primitives, and light and dark mode token support.",
+      "featureList": [
+        "Automated Figma color variable generation",
+        "WCAG and APCA contrast calculation",
+        "Light and dark mode design token support",
+        "22 color primitives with 11 tints and 11 shades",
+        "Claude automation prompt library for the Figma MCP server",
+        "Step-by-step video tutorial"
+      ],
+      "author": { "@type": "Person", "name": "Jono Young" },
+      "offers": {
+        "@type": "Offer",
+        "price": "9.00",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.figma.com/community/file/1609064865555421103/color-swatch-pro"
+      }
+    }
+    </script>
+
+    <!-- Structured data: walkthrough video -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      "name": "Color Swatch Pro walkthrough — building a Figma color system with Claude and the Figma MCP server",
+      "description": "A full walkthrough showing how to connect Claude to the Figma MCP server and build a complete, accessible color system in six prompts: creating color variables, generating swatch components, calculating APCA contrast, optimizing for dark mode, organizing the palette, and updating token names.",
+      "thumbnailUrl": "https://colorswatchpro.com/images/1920p-tn-colorSwarchProA.png",
+      "uploadDate": "2026-01-15",
+      "duration": "PT20M29S",
+      "contentUrl": "https://vz-53c8527f-47f.b-cdn.net/c23907bc-ff99-4578-98df-11960ce8ce51/playlist.m3u8",
+      "embedUrl": "https://colorswatchpro.com/#walkthrough",
+      "hasPart": [
+        { "@type": "Clip", "name": "Prompt 1: Create Colors", "startOffset": 249, "url": "https://colorswatchpro.com/#walkthrough" },
+        { "@type": "Clip", "name": "Prompt 2: Start Color Swatch Pro", "startOffset": 330, "url": "https://colorswatchpro.com/#walkthrough" },
+        { "@type": "Clip", "name": "Prompt 3: Accessibility", "startOffset": 476, "url": "https://colorswatchpro.com/#walkthrough" },
+        { "@type": "Clip", "name": "Prompt 4: Color accessibility", "startOffset": 720, "url": "https://colorswatchpro.com/#walkthrough" },
+        { "@type": "Clip", "name": "Prompt 5: Organize", "startOffset": 900, "url": "https://colorswatchpro.com/#walkthrough" },
+        { "@type": "Clip", "name": "Prompt 6: Update Variable Names", "startOffset": 1056, "url": "https://colorswatchpro.com/#walkthrough" }
+      ]
+    }
+    </script>
+
+    <!-- Structured data: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Figma MCP server?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The Figma MCP server is a Model Context Protocol connector that lets an AI assistant like Claude read and write directly inside a Figma file. Instead of describing what you want and copying results back by hand, Claude can create variables, place components, set text values, and toggle component properties in your live document. Color Swatch Pro is built to be driven this way." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I connect Claude to Figma?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You enable the Figma MCP server from Figma's developer settings, then add it as a connector in Claude. Once connected, Claude can see the Figma file you have open and act on it. The walkthrough video covers the full setup from a blank file through to a finished palette." }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between WCAG and APCA contrast?",
+          "acceptedAnswer": { "@type": "Answer", "text": "WCAG contrast uses a ratio between two relative luminance values and is the current accepted accessibility standard. APCA scores perceptual lightness contrast on a scale where higher numbers mean more readable text, and it models how contrast actually behaves for dark mode and thin type far more accurately. Color Swatch Pro includes both so you can meet today's requirement while designing against the model expected to replace it." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a paid Figma plan to use Color Swatch Pro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "You need a Figma plan that supports variables and the MCP server to run the full automated workflow. The component system itself can be opened and used manually on any plan, but variable creation and MCP access are the pieces that require a paid seat." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use these color variables in code?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. The palette is built as Figma variables with design token references from the start, so it exports cleanly to CSS custom properties, Tailwind config, or any token pipeline. Semantic tokens are aliased to primitives, which means light and dark mode resolve correctly on the code side too." }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to build a color system with Color Swatch Pro?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Six prompts, typically under ten minutes for a two-hue palette of 22 primitives with full contrast documentation. Building the same thing by hand — creating variables, drawing swatches, checking every contrast pair, and labelling tokens — usually takes about 45 minutes per palette." }
+        }
+      ]
+    }
+    </script>
     <script type="text/javascript">
       (function (e, c) {
         if (!c.__SV) {
@@ -118,7 +242,7 @@
           </h1>
           <p class="hero-sub">
             Color Swatch Pro pairs with Claude and the Figma MCP server to create <a
-              href="https://www.untitledui.com/blog/figma-color-palettes" target="_blank">a fully documented design
+              href="https://www.untitledui.com/blog/figma-color-palettes" target="_blank" rel="noopener noreferrer nofollow">a fully documented design
               system</a> color palette in minutes. <a href="#walkthrough">See how it works.</a>
           </p>
           <p></p>
@@ -277,9 +401,8 @@
         <div class="section-label">How it works</div>
         <h2 class="section-title"><span class="accent-text">Prompt&hellip;</span> Palette&hellip; <span
             class="accent-text">Done</span></h2>
-        <p class="section-sub">Six automated steps replace hours of manual work. Claude reads the component structure
-          and
-          handles everything.</p>
+        <p class="section-sub">Six automated steps replace hours of manual work. Claude connects through the Figma MCP
+          server, reads the component structure, and builds your color palette and design tokens end to end.</p>
 
         <div class="steps-carousel-wrap">
           <div class="steps" id="stepsGrid">
@@ -405,7 +528,7 @@
       <!-- VIDEO WALKTHROUGH -->
       <section class="video-section reveal" aria-label="Video walkthrough">
         <div class="section-label">See it in action</div>
-        <h2 class="section-title">Watch the full walkthrough</h2>
+        <h2 class="section-title">Watch the full Figma MCP walkthrough</h2>
         <p class="section-sub">See how Claude and Color Swatch Pro work together to build a complete, accessible color
           system in minutes.</p>
         <div class="video-wrapper" id="walkthrough">
@@ -446,13 +569,89 @@
             <span class="chapter-time">17:36</span>
             <span class="chapter-label"><span class="chapter-prompt">PROMPT 6:</span> Update Variable Names</span>
           </button>
-          </nav>
+        </div>
+
+        <details class="transcript">
+          <summary class="transcript-summary">Read the full video transcript (20 minutes, 6 prompts)</summary>
+          <div class="transcript-body">
+            <h3 class="transcript-h">Introduction <span class="transcript-ts">0:00</span></h3>
+            <p>Color Swatch Pro is a professional grade design system color swatch component that you can use to document all of your colors in Figma. Up until this month, it would have taken hours to get Color Swatch Pro applied to all of your design system colors. But now with Claude and the Figma MCP server, we can automate the entire process in just a few minutes. And I&#x27;m going to walk you through how to build a great looking design system color palette documentation set of colors in just a few minutes.</p>
+            <p>So the first thing you need to do is head into the Figma community Look for Color Swatch Pro and purchase the file. It&#x27;s a $9 purchase, but what I&#x27;m about to show you in this video is going to save you hours of time. So you&#x27;ll already have ROI on your purchase by the end of this video. So once you download Color Swatch Pro, you&#x27;ll see inside the file, there is a Figblog.</p>
+            <p>There&#x27;s a sample of the color palette that we&#x27;re going to create. and then there is the color component itself. I&#x27;ll make another video that covers all of the different options that you have available in this color palette, but to give you a sense of it, you can switch from WCAG to APCA, contrast ratings, And you can set in the component whether or not the color contrast is suitable for various text sizes</p>
+            <p>or meets double or triple A standards. And you can also customize it to show and hide your colors in dark mode. And if you want to, or if you&#x27;re using design system or design tokens, you can also indicate the light mode and dark mode token. And all of that can be automated with Claude.</p>
+            <p>So let&#x27;s just jump in and get started. Once you have Color Swatch Pro added to your Figma account, we&#x27;re going to create a new document and you can import Color Swatch Pro as a published design system component, or you can simply come in here and grab the component itself, paste it into your file. And then I&#x27;m just going to call this component and then I&#x27;m going to create a new page.</p>
+            <p>I&#x27;m going to call it colors. So right now I don&#x27;t have any colors in this file. My design system doesn&#x27;t have any colors. The first thing I need to do is create a set of colors.</p>
+            <p>And we&#x27;re going to use Claude for that. So you&#x27;ll need to have the Figma console server installed. Next thing we need to do is connect our file to Claude and we do that with the Figma console bridge. So you&#x27;ll need to go up to plugins and then manage plugins and look for Figma desktop bridge and install that.</p>
+            <p>Once it&#x27;s installed click on it to open it and now that Figma MCP is ready we can hop into Claude. I&#x27;ve created a brand new Claude project and your Claude might have some memories in it. So the way these prompts work in your version of Claude might be a little bit different than mine. But what I&#x27;m going to do is show you just a series of five prompts that you can use to go from no color palettes to a professional grade color palette</p>
+            <p>using Claude to automate the configuration of Color Swatch Pro. So the first thing we need to do is create some colors. I&#x27;m gonna start with a brand primary and a neutral color palette. So we need to prompt Claude to do that.</p>
+            <p>And the first thing we need to do is make sure that Claude can actually see our file. We&#x27;ll just confirm that Claude and Figma are talking. And so let&#x27;s just name this, I&#x27;m gonna name this design system. And now that I have the file named, I&#x27;ll go back to Claude.</p>
+            <p>And I&#x27;m going to ask it, can you see the file design system? Claude will check just to see that it&#x27;s able to access the file. So sometimes it takes Figma a little bit of time to update the file name. Claude does see it.</p>
+            <p>It still sees the file named untitled instead of design system. But I feel confident now that we can get going. It does see the page name colors here. So it lets me know that Claude does see the file that I&#x27;m currently working in.</p>
+            <h3 class="transcript-h">Prompt 1: Create color variables <span class="transcript-ts">4:09</span></h3>
+            <p>So the first thing we need to do is put in a prompt, create a set of color variables in a new collection called primitives. The first color is brand primary with a 500 value of HSL 245, 5250. The second color, create a second color for neutral with a 500 value of 245, 450. Create 2550, 100 to 400, then 600 to 900 and 950, where 25 to 400 are tints and 600 to 950 are shades. I&#x27;m just going to send this in and Claude is going to understand the prompt and then what I&#x27;ll do is I&#x27;ll open up variables over here in Figma and you&#x27;ll</p>
+            <p>see there&#x27;s nothing in here so there&#x27;s no variables created. Back in Claude it&#x27;s starting to do the work. And this is pretty fast. If you&#x27;re creating dozens or more color palettes, it&#x27;s still pretty quick.</p>
+            <p>And I did this the first time on the free version of Claude. So you can actually go through this entire process using the free version of Claude, but I am on the pro level Claude right now. It&#x27;s created 24 color variables. It&#x27;s given me a summary of what&#x27;s happened here.</p>
+            <p>And so if I go into variables, you&#x27;ll now see that I have my brand primary variables ready to go and I have my neutral variables ready to go. Okay, so that&#x27;s complete, great.</p>
+            <h3 class="transcript-h">Prompt 2: Start Color Swatch Pro <span class="transcript-ts">5:30</span></h3>
+            <p>Now, what I&#x27;m gonna do is take this color swatch component and I&#x27;m gonna add it to my colors page. Let&#x27;s zoom this out a little bit. Now we&#x27;re going to tell Claude to use this component to document all of the colors that we just created. So here comes prompt number two, also available in the video description.</p>
+            <p>Here&#x27;s prompt number two. Use the component color swatch to create a color swatch for each variable in primitives. Fill the layer color with the variable&#x27;s color value. Color swatch has a hex and HSL color values.</p>
+            <p>Please fill that in for each linked color variable. If we hop back into Figma, we can see that right now there&#x27;s just this one color swatch component on the stage. And as Claude begins to catch up with the prompt, you&#x27;ll see that the rest of the components get built out. So let&#x27;s head back to Claude and see what it&#x27;s doing.</p>
+            <p>It&#x27;s going to ask me to allow, so you might just have to allow Claude to access your files initially. It is now looking at the components. Claude is now understanding how the component is built. And there&#x27;s a lot to that component.</p>
+            <p>And you&#x27;ll see in a moment that we can prompt Claude to use all of the features without having to go in and click and update component property. Claude now understands how the component works. which is incredible. It probably would take you 15 to 20 minutes just to understand everything you can do in the component, which is why I put some documentation in the Fig</p>
+            <p>blog page that comes with Color Swatch Pro. While Claude is churning and creating assets for me in Figma, I&#x27;m usually working on something else, so I&#x27;m not going to typically be sitting here watching. I just kind of let it happen in the background and I&#x27;ll check in on it from time to time. But it really is very fast after it gets the initial component created.</p>
+            <p>To give you an idea, And wow, just like that, the palette is now created. So you can see I&#x27;ve got all of my tints, all of my shades, and the documentation has been updated. The next thing I want to do is utilize the contrast and accessibility settings. So each component has a WCAG or APCA color contrast rating.</p>
+            <p>It also has light mode and dark mode and it has a lot of different settings for pass or fail if you toggle into APCA.</p>
+            <h3 class="transcript-h">Prompt 3: Contrast and accessibility <span class="transcript-ts">7:56</span></h3>
+            <p>So what I&#x27;m going to do is now ask Claude to check all the colors, check their contrast, update the contrast rating, and then update the pass fail toggles for all of the APCA text sizes. So the next prompt we need which is available in the video description is this one here. I&#x27;m saying next I want to update the color APCA contrast value for each color and set pass fail for large text, fluent text,</p>
+            <p>body text, and preferred text. The color swatch component has a layer named 00, replace that with the APCA value, then toggle each component property true or false based on the APCA value. For example, if the APCA value is greater than 90, set these to pass, large text, fluid text, body text, and preferred text. Match the pass fail property setting for each color based on the APCA value.</p>
+            <p>So what Claude is doing is understanding that prompt and what you&#x27;re going to see happen here is that these are going to switch from WCAG, which is the current standard color contrast rating, into APCA. So WCAG 2.0 or 2 point something is the current standard. WCAG 3.0 is going to adopt APCA.</p>
+            <p>So this Color Swatch Pro component is built for now, but you can start working in the future with APCA and update your colors today from scratch using Claude so that you&#x27;ll be ready when the new standard rolls over. So let&#x27;s check in and see what Claude is doing. It&#x27;s exploring each variant in detail.</p>
+            <p>This used to take me at least 20 to 25 minutes for each color to go in, click on the color, open Starks contrast rating tool, check WCAG, and then flip over to APCA if I want to and check the APCA rating. Then I would have to go into each color and update the values. I&#x27;d have to then go in and toggle on and off the true false for the pass rating, and all of that can now be automated.</p>
+            <p>So Claude&#x27;s thinking about it. You&#x27;re going to see these switch from the WCAG default to APCA. And while it&#x27;s doing that, let&#x27;s explore the component a little bit more. So here you can zoom in and take a look at this while Claude&#x27;s working in the background.</p>
+            <p>This is the WCAG version. If you flip over to APCA, It gives you the same name, color area, and hex and HSL values, but what APCA does is it gives you four different types of text. So what you want is for this color up here to have a contrast that&#x27;s higher than 45, 60, 75, or 90 if you want to use that for white or black text on top of the color background that you&#x27;re using.</p>
+            <p>So Claude has gone through and updated all of the colors now. So one of them it&#x27;s missed for some reason. So sometimes I think it&#x27;s probably just using the original color palette, the original color here. We&#x27;ll worry about this in a second.</p>
+            <p>So it&#x27;s important just to move ahead, keep updating the palette and we&#x27;ll get Claude to clean this up as we go. So this is the first time I&#x27;ve set it up. Technically, there&#x27;s some things in here like these negative values. They can be cleaned up, but we&#x27;re going to go into the next prompt.</p>
+            <p>Okay, so now Claude has updated all of the swatches per the recommendation. It&#x27;s switched them into APCA mode. It&#x27;s checked the contrast of the color. And as you can see, it hasn&#x27;t quite optimized them yet for optimal accessibility.</p>
+            <p>So some of these are black text on a dark background. So the next prompt is gonna tell Claude to put on its accessibility hat and update these color swatches for optimal contrast.</p>
+            <h3 class="transcript-h">Prompt 4: Optimize color accessibility <span class="transcript-ts">12:00</span></h3>
+            <p>Back in Claude, we&#x27;re gonna go into prompt number four, which is available in the video description. And now we&#x27;re gonna tell Claude that we need to adjust each swatch for better contrast. We need to tell it about how to do that. So I&#x27;ve instructed it to look at the swatch component and look for the property for dark mode.</p>
+            <p>It says by default, it&#x27;s in light mode. Update each swatch to dark where it increases potential use cases for each color. Please update the APCA value and the pass fail values for all swatches that are changed to dark mode. So Claude is looking at those directions.</p>
+            <p>It&#x27;s thinking about it. You&#x27;re going to see back here in Figma that these files that are dark text on a dark background are going to be updated to update a more optimal contrast rating. And then we can see we still have a WCAG component for some reason. So each time you do this, it&#x27;s gonna get better.</p>
+            <p>The first time I did this, it worked flawlessly. So everybody&#x27;s experience is gonna be a little bit different, but you can see we&#x27;re making a huge amount of progress. And in just a few minutes, Claude&#x27;s taking care of things that would have taken 30 minutes to 45 minutes at this point. So Claude is still thinking.</p>
+            <p>We&#x27;ll see in the background that this will update in a moment. Let&#x27;s hop back over to the component and I&#x27;m going to walk through some of the features that are available here. So in the APCA setting. If this color has a contrast rating that is 75 but not 90, then what we could do is manually toggle the fail off since it passes for those colors.</p>
+            <p>But if it&#x27;s not hitting a 90, then we leave that as a fail. And we could also click on this and update all of the values here by hand. So this is the APCA contrast rating. This is the name.</p>
+            <p>So you can type in here, whatever you want. You can type in the 500 value. You can totally use this and do this by hand. And it&#x27;s still incredibly powerful.</p>
+            <p>Let&#x27;s check in and see what Claude&#x27;s doing. It&#x27;s still thinking it&#x27;s making some updates. I think some of these colors are already being optimized. So down here we can see that it&#x27;s switched from the dark text on the dark background to light text in the light background.</p>
+            <p>It&#x27;s updating the pass fail ratings for all of the components. So we&#x27;re making a lot of progress here. You can imagine just looking at the level of detail that you have to configure for each of these components, how long it would take for you just to kind of update each one.</p>
+            <p>So Claude is churning through pretty quickly. It&#x27;s still thinking. It&#x27;s updating a few things. It&#x27;s actually correcting itself, which is pretty awesome.</p>
+            <p>We&#x27;ve now got some components. It looks like Claude is now complete with that prompt. So Claude&#x27;s finished the work. Now we&#x27;re going to tell Claude to clean up these color palettes using auto layout.</p>
+            <h3 class="transcript-h">Prompt 5: Organize the palette <span class="transcript-ts">15:00</span></h3>
+            <p>Back in Claude, we&#x27;re gonna go into prompt number five, which is available in the video description. Let&#x27;s paste that in. So now we&#x27;re telling Claude to wrap each of the color sets in a wrapper, apply 24 pixels of padding and 24 pixels of gap for the auto layout. We&#x27;re also asking it to add a card at the beginning of the color set with a title and a description.</p>
+            <p>And it will do a pretty good job of writing a description of how the color should be used. But if you already have a brand or style guide, you could copy and paste that text in. This is just gonna get you 90% of the way to being done. So it&#x27;s still thinking about it.</p>
+            <p>We&#x27;ll see here in the background in just a moment that it&#x27;s going to wrap the color in an auto layout and space everything out. And then at that point, maybe we need to do a little manual cleanup or we&#x27;ll figure out where the extra elements have been added. So let&#x27;s just check in on the File, it&#x27;s updating it. There you go.</p>
+            <p>It&#x27;s all been updated now Each time this gets a little bit different. This is still pretty cool So it added a color chip here so you can prompt it to do things more exact I tend to let it do things and then learn how to improve the prompt as I go So things are looking pretty good. I only see one potential problem right now is that the first color, the 25 value for some reason is not using the APCA color model.</p>
+            <p>So we&#x27;re going to update that. And then I can see that the color has not been named correctly. So I&#x27;m going to have it update the name here. So we don&#x27;t have to do that either.</p>
+            <p>And if we scroll down here, It looks like there&#x27;s maybe an extra color here, like there&#x27;s like a mismatch in the total number of colors. But first, let&#x27;s fix this issue. So the 25 value color swatch in brand primary needs to match the APCA color model. So let&#x27;s quickly tell Claude to do that.</p>
+            <p>Okay, that&#x27;s a pretty quick update, so let&#x27;s just watch and see how long it takes Claude to do something simple like that. You can combine this type of prompt, like a quick fix prompt, into a more complicated prompt, but I find it&#x27;s better just to use simple multi-step prompts instead of putting everything into one prompt, so you can sort of, it lets you spot the errors as they come. Okay, so this is great.</p>
+            <p>Now, the next thing I&#x27;m going to do, and you can be very specific about this, I could come in here and I could tell it that the name layer is called name</p>
+            <h3 class="transcript-h">Prompt 6: Update variable names <span class="transcript-ts">17:36</span></h3>
+            <p>and the value layer is called pound pound. Let&#x27;s just see if Claude&#x27;s smart enough to figure out how to update the component. So I&#x27;m going to ask it to update the name and the value based on the color variance name. So I&#x27;ve told Claude to update the name and color value for each color using the primitive name.</p>
+            <p>It should know well enough to go into the color variables, look and see which colors being used in the Color Swatch Pro component and update the names accordingly. And it did. So this is, this is done. This is essentially ready to go for production.</p>
+            <p>And now the, the last thing is these color tokens. Within any color, let&#x27;s say that this is maybe a secondary button background color you&#x27;re using. You could tell Claude to update these token layers for light mode to be button background dark. or button background light.</p>
+            <p>And so you might not need these, but if you do need them in the color palette, you can turn them off or on. So I can turn off token one, token two. I can also say token ones for dark mode or light mode. But for now, I don&#x27;t need these.</p>
+            <p>So I&#x27;m just gonna tell Claude to turn off the tokens. Then I&#x27;ll be finished with my color palette and I can move on to something else. So telling Claude to turn off the token values and this is something you could easily do. But just as I would start coming in here and toggling off this one and this one and then I go here or maybe because of the way this is built I could click</p>
+            <p>into all of them and turn them off fairly quickly. But why not just have Claude do it. And now we have a fully documented color swatch probe based color palette. Come in here double check everything make sure everything is the way that you think it needs to be.</p>
+            <p>This looks pretty good to me. This used to take 30 to 45 minutes just to do this level of detail. So I hope you found this useful. I&#x27;ll do some more videos on more things you can do with Claude and Color Swatch Pro.</p>
+            <p>I&#x27;ll also do another video which might be available by the time you&#x27;re watching this for how to get Claude and Figma connected using Figma console MCP server. It&#x27;s fairly straightforward, but most of the videos and the tutorials I&#x27;ve seen for it miss out a few steps that are probably gonna get you stuck. So stay tuned for that or look for more videos in the current playlist you&#x27;re watching. Thanks for watching.</p>
+            <p>Share this video with anybody you think might benefit from it. And I&#x27;d love to hear down in the comments if you&#x27;re running into trouble or if you came up with a really clever way to use Color Swatch Pro that we haven&#x27;t thought of yet in this video. Happy designing and good luck.</p>
+          </div>
+        </details>
       </section>
 
       <!-- FEATURES -->
       <section class="features reveal" aria-label="Features">
         <div class="section-label">What's inside</div>
-        <h2 class="section-title">Everything you need to<br>document color properly</h2>
+        <h2 class="section-title">Everything you need to<br>document design system color</h2>
 
         <div class="features-grid">
           <!-- Large: Swatch preview -->
@@ -728,7 +927,7 @@
           <div class="feat-card third">
             <div class="feat-icon"><img src="images/icon-swatchbook.svg" alt="22.5 Color Primitives" width="24"
                 height="24" /></div>
-            <h3 class="feat-title">22 Color Primitives</h3>
+            <h3 class="feat-title">22 Ready-Made Color Primitives</h3>
             <p class="feat-desc">A ready-to-use palette structure with 11 tints and 11 shades per hue.</p>
           </div>
 
@@ -861,6 +1060,40 @@
             </div>
           </div>
           <div class="audience-dots" id="audienceDots"></div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="faq reveal" id="faq" aria-label="Frequently asked questions">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">Questions about Figma, Claude &amp; color</h2>
+        <p class="section-sub">How the Figma MCP workflow, contrast models, and design tokens fit together.</p>
+
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-q"><h3>What is the Figma MCP server?</h3></summary>
+            <div class="faq-a"><p>The Figma MCP server is a Model Context Protocol connector that lets an AI assistant like Claude read and write directly inside a Figma file. Instead of describing what you want and copying results back by hand, Claude can create variables, place components, set text values, and toggle component properties in your live document. Color Swatch Pro is built to be driven this way.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><h3>How do I connect Claude to Figma?</h3></summary>
+            <div class="faq-a"><p>You enable the Figma MCP server from Figma&rsquo;s developer settings, then add it as a connector in Claude. Once connected, Claude can see the Figma file you have open and act on it. The walkthrough video covers the full setup from a blank file through to a finished palette.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><h3>What is the difference between WCAG and APCA contrast?</h3></summary>
+            <div class="faq-a"><p>WCAG contrast uses a ratio between two relative luminance values and is the current accepted accessibility standard. APCA scores perceptual lightness contrast on a scale where higher numbers mean more readable text, and it models how contrast actually behaves for dark mode and thin type far more accurately. Color Swatch Pro includes both so you can meet today&rsquo;s requirement while designing against the model expected to replace it.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><h3>Do I need a paid Figma plan to use Color Swatch Pro?</h3></summary>
+            <div class="faq-a"><p>You need a Figma plan that supports variables and the MCP server to run the full automated workflow. The component system itself can be opened and used manually on any plan, but variable creation and MCP access are the pieces that require a paid seat.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><h3>Can I use these color variables in code?</h3></summary>
+            <div class="faq-a"><p>Yes. The palette is built as Figma variables with design token references from the start, so it exports cleanly to CSS custom properties, Tailwind config, or any token pipeline. Semantic tokens are aliased to primitives, which means light and dark mode resolve correctly on the code side too.</p></div>
+          </details>
+          <details class="faq-item">
+            <summary class="faq-q"><h3>How long does it take to build a color system with Color Swatch Pro?</h3></summary>
+            <div class="faq-a"><p>Six prompts, typically under ten minutes for a two-hue palette of 22 primitives with full contrast documentation. Building the same thing by hand &mdash; creating variables, drawing swatches, checking every contrast pair, and labelling tokens &mdash; usually takes about 45 minutes per palette.</p></div>
+          </details>
         </div>
       </section>
 
@@ -1373,12 +1606,12 @@
     </script>
 
     <!-- HLS video player -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js" defer></script>
     <script>
-      (function () {
+      document.addEventListener('DOMContentLoaded', function () {
         const video = document.getElementById('walkthrough-video');
         const src = 'https://vz-53c8527f-47f.b-cdn.net/c23907bc-ff99-4578-98df-11960ce8ce51/playlist.m3u8';
-        if (Hls.isSupported()) {
+        if (window.Hls && Hls.isSupported()) {
           const hls = new Hls({startLevel: -1});
           hls.loadSource(src);
           hls.attachMedia(video);
@@ -1386,7 +1619,7 @@
           // Safari — native HLS support
           video.src = src;
         }
-      })();
+      });
 
       // Video chapters
       (function () {
